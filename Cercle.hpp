@@ -2,15 +2,43 @@
 
 #include "Enums.h"
 
+/**
+ * @file Cercle.hpp
+ * @brief Définition minimale de la classe `Cercle` utilisée dans le projet.
+ */
+
+/**
+ * @class Cercle
+ * @brief Représente un cercle caractérisé par une couleur et une taille.
+ */
 class Cercle {
 public:
+    /**
+     * @brief Constructeur par défaut.
+     */
     Cercle() = default;
+
+    /**
+     * @brief Constructeur avec paramètres.
+     *
+     * @param[in] c Couleur du cercle.
+     * @param[in] t Taille du cercle.
+     */
     Cercle(Couleur c, Taille t) : couleur(c), taille(t) {}
 
+    /**
+     * @brief Obtient la couleur du cercle.
+     * @return La `Couleur` du cercle.
+     */
     Couleur getCouleur() const { return couleur; }
+
+    /**
+     * @brief Obtient la taille du cercle.
+     * @return La `Taille` du cercle.
+     */
     Taille getTaille() const { return taille; }
 
 private:
-    Couleur couleur{Couleur::Rouge};
-    Taille taille{Taille::Moyen};
+    Couleur couleur{Couleur::Rouge}; /**< Couleur par défaut */
+    Taille taille{Taille::Moyen};    /**< Taille par défaut */
 };

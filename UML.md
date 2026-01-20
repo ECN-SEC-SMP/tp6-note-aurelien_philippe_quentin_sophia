@@ -1,3 +1,6 @@
+#Code UML a coller sur MERMAID
+
+```
 classDiagram
     %% Relations
     Jeu *-- "1" Plateau : Contient
@@ -73,3 +76,5 @@ classDiagram
       MOYEN
       GRAND
     }
+
+```

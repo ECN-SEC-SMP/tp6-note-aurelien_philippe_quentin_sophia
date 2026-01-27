@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/tp6.dir/main.cpp.o CMakeFiles/tp6.dir/Case.cpp.o CMakeFiles/tp6.dir/Cercle.cpp.o CMakeFiles/tp6.dir/Humain.cpp.o CMakeFiles/tp6.dir/Jeu.cpp.o CMakeFiles/tp6.dir/Joueur.cpp.o CMakeFiles/tp6.dir/Machine.cpp.o CMakeFiles/tp6.dir/Plateau.cpp.o -o tp6

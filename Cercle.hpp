@@ -38,6 +38,15 @@ public:
      */
     Taille getTaille() const { return taille; }
 
+    /**
+     * @brief Opérateur d'égalité.
+     * @param other Le cercle à comparer.
+     * @return `true` si les deux cercles ont la même couleur et taille.
+     */
+    bool operator==(const Cercle& other) const {
+        return couleur == other.couleur && taille == other.taille;
+    }
+
 private:
     Couleur couleur{Couleur::Rouge}; /**< Couleur par défaut */
     Taille taille{Taille::Moyen};    /**< Taille par défaut */

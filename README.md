@@ -3,6 +3,10 @@
 ## Résumé du Projet
 Implémentation du jeu Otrio avec 3 versions pour des joueurs humains et une intelligence artificielle basique. Le jeu se joue sur un plateau 3x3 avec des cercles de différentes tailles.
 
+## Procédure de compilation et lancement
+1) cd build && cmake --build .
+2) ./tp6
+
 ---
 
 ## Parties du Rendu

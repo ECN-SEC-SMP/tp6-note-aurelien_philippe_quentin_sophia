@@ -4,50 +4,56 @@
 
 /**
  * @file Cercle.hpp
- * @brief Définition minimale de la classe `Cercle` utilisée dans le projet.
+ * @brief Définition de la classe `Cercle` utilisée dans le projet.
  */
 
 /**
  * @class Cercle
- * @brief Représente un cercle caractérisé par une couleur et une taille.
+ * @brief Caractérisé par une couleur et une taille.
  */
 class Cercle {
-public:
-    /**
-     * @brief Constructeur par défaut.
-     */
-    Cercle() = default;
+    private:
+        Couleur couleur{Couleur::Rouge}; /**< Couleur par défaut */
+        Taille taille{Taille::Moyen};    /**< Taille par défaut */
+        
+    public:
+        /**
+         * @brief Constructeur par défaut.
+         */
+        Cercle() = default;
 
-    /**
-     * @brief Constructeur avec paramètres.
-     *
-     * @param[in] c Couleur du cercle.
-     * @param[in] t Taille du cercle.
-     */
-    Cercle(Couleur c, Taille t) : couleur(c), taille(t) {}
+        /**
+         * @brief Constructeur avec paramètres.
+         *
+         * @param[in] c Couleur du cercle.
+         * @param[in] t Taille du cercle.
+         */
+        Cercle(Couleur c, Taille t) : couleur(c), taille(t) {}
 
-    /**
-     * @brief Obtient la couleur du cercle.
-     * @return La `Couleur` du cercle.
-     */
-    Couleur getCouleur() const { return couleur; }
+        /**
+         * @brief Obtient la couleur du cercle.
+         * @return La `Couleur` du cercle.
+         */
+        Couleur getCouleur() const { return couleur; }
 
-    /**
-     * @brief Obtient la taille du cercle.
-     * @return La `Taille` du cercle.
-     */
-    Taille getTaille() const { return taille; }
+        /**
+         * @brief Obtient la taille du cercle.
+         * @return La `Taille` du cercle.
+         */
+        Taille getTaille() const { return taille; }
 
-    /**
-     * @brief Opérateur d'égalité.
-     * @param other Le cercle à comparer.
-     * @return `true` si les deux cercles ont la même couleur et taille.
-     */
-    bool operator==(const Cercle& other) const {
-        return couleur == other.couleur && taille == other.taille;
-    }
+        /**
+         * @brief Opérateur d'égalité.
+         * @param other Le cercle à comparer.
+         * @return `true` si les deux cercles ont la même couleur et taille.
+         */
+        bool operator==(const Cercle& other) const {
+            return couleur == other.couleur && taille == other.taille;
+        }
 
-private:
-    Couleur couleur{Couleur::Rouge}; /**< Couleur par défaut */
-    Taille taille{Taille::Moyen};    /**< Taille par défaut */
+        /**
+         * @brief Affiche les caractéristiques du cercle.
+         */
+        void afficher() const;
+
 };

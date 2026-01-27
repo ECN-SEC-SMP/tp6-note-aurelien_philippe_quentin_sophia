@@ -11,14 +11,16 @@
 Case::Case() = default;
 
 /**
- * @brief Vérifie qu'un cercle n'est pas déjà présent dans la case.
+ * @brief Tester si on peut poser un cercle.
  *
- * @param[in] cercle Le `Cercle` recherché.
- * @return `true` si le cercle n'est pas présent (donc ajoutable),
- *         `false` si le cercle est déjà présent.
+ * @param[in] cercle Le cercle à ajouter.
+ * @return `true` si l'ajout est permis, `false` sinon.
  */
 bool Case::testerCercles(const Cercle& cercle){
-    return (std::find(cercles.begin(), cercles.end(), cercle) == cercles.end());
+    for (Cercle currentCercle : getCercles()) {
+        if (cercle.getTaille() == currentCercle.getTaille()) return false;
+    }
+    return true;
 }
 
 /**

@@ -7,7 +7,7 @@ class Humain : public Joueur {
 public:
     Humain(const std::string& nom, Couleur couleur);
 
-    void deciderAction() override;
+    std::string deciderAction(Plateau& p) override;
 };
 
 #endif // HUMAIN_HPP

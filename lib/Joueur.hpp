@@ -5,6 +5,7 @@
 #include <iostream> 
 #include "Cercle.hpp"
 #include "Enums.h"
+#include "Plateau.hpp"
 
 class Joueur {
 private:
@@ -19,7 +20,7 @@ public:
 
     void retirerCercle(Taille taille);
     bool aDesCercles() const;
-    virtual void deciderAction() = 0;
+    virtual std::string deciderAction(Plateau& p) = 0;
 
 
     // Getters

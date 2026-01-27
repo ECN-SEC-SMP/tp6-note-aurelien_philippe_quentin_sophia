@@ -34,8 +34,8 @@ const Case& Plateau::getCase(int x, int y) const {
 }
 
 void Plateau::afficher() {
-    cout << "\n     0             1             2" << endl;
-    cout << "  +-------------+-------------+-------------+" << endl;
+    cout << "\n      0         1         2" << endl;
+    cout << "  +---------+---------+---------+" << endl;
 
     for (int y = 0; y < 3; y++) {
         cout << y << " | ";
@@ -70,6 +70,6 @@ void Plateau::afficher() {
             cout << "[" << petit << " " << moyen << " " << grand << "] | ";
         }
         cout << endl;
-        cout << "  +-------------+-------------+-------------+" << endl;
+        cout << "  +---------+---------+---------+" << endl;
     }
 }

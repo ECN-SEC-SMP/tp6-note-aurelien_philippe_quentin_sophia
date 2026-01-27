@@ -22,18 +22,46 @@ public:
 
 
     // Getters
-    Couleur getCouleur() const;
-    std::string getNom() const;
-    int getPetitCercle() const;
-    int getMoyenCercle() const;
-    int getGrandCercle() const;
+    Couleur getCouleur() const {
+        return couleur;
+    }
+    
+    std::string getNom() const {
+        return nom;
+    }
+    
+    int getPetitCercle() const {
+        return petitCercle;
+    }
+    
+    int getMoyenCercle() const {
+        return moyenCercle;
+    }
+    
+    int getGrandCercle() const {
+        return grandCercle;
+    }
 
     // Setters
-    void setCouleur(Couleur couleur);
-    void setNom(const std::string& nom);     
-    void setPetitCercle(int nombre);
-    void setMoyenCercle(int nombre);
-    void setGrandCercle(int nombre);   
+    void setCouleur(Couleur nouvelleCouleur) {
+        couleur = nouvelleCouleur;
+    }
+    
+    void setNom(const std::string& nouveauNom) {
+        nom = nouveauNom;
+    }
+    
+    void setPetitCercle(int nombre) {
+        if (nombre >= 0) petitCercle = nombre;
+    }
+    
+    void setMoyenCercle(int nombre) {
+        if (nombre >= 0) moyenCercle = nombre;
+    }
+    
+    void setGrandCercle(int nombre) {
+        if (nombre >= 0) grandCercle = nombre;
+    }
 };
 
 #endif // JOUEUR_HPP

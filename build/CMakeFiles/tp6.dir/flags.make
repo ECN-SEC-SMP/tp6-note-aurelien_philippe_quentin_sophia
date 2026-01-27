@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/quentin/Desktop/temp/tp6-note-aurelien_philippe_quentin_sophia
+CXX_INCLUDES = -I/Users/quentin/Desktop/temp/tp6-note-aurelien_philippe_quentin_sophia/cmake/../lib
 
 CXX_FLAGSarm64 = -std=c++17 -arch arm64 -Wall -Wextra -Wpedantic
 

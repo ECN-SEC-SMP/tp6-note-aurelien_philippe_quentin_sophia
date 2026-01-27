@@ -1,4 +1,4 @@
-# Install script for directory: /Users/quentin/Desktop/temp/tp6-note-aurelien_philippe_quentin_sophia
+# Install script for directory: /Users/quentin/Desktop/temp/tp6-note-aurelien_philippe_quentin_sophia/cmake
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

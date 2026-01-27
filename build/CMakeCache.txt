@@ -223,7 +223,7 @@ tp6_note_BINARY_DIR:STATIC=/Users/quentin/Desktop/temp/tp6-note-aurelien_philipp
 tp6_note_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-tp6_note_SOURCE_DIR:STATIC=/Users/quentin/Desktop/temp/tp6-note-aurelien_philippe_quentin_sophia
+tp6_note_SOURCE_DIR:STATIC=/Users/quentin/Desktop/temp/tp6-note-aurelien_philippe_quentin_sophia/cmake
 
 
 ########################
@@ -292,7 +292,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/Users/quentin/Desktop/temp/tp6-note-aurelien_philippe_quentin_sophia
+CMAKE_HOME_DIRECTORY:INTERNAL=/Users/quentin/Desktop/temp/tp6-note-aurelien_philippe_quentin_sophia/cmake
 //ADVANCED property for variable: CMAKE_INSTALL_NAME_TOOL
 CMAKE_INSTALL_NAME_TOOL-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER

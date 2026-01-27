@@ -6,21 +6,21 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Sources
+# Sources (chemin relatif au répertoire cmake/)
 set(SOURCES
-    main.cpp
-    Case.cpp
-    Cercle.cpp
-    Humain.cpp
-    Jeu.cpp
-    Joueur.cpp
-    Machine.cpp
-    Plateau.cpp
+    ../src/main.cpp
+    ../src/Case.cpp
+    ../src/Cercle.cpp
+    ../src/Humain.cpp
+    ../src/Jeu.cpp
+    ../src/Joueur.cpp
+    ../src/Machine.cpp
+    ../src/Plateau.cpp
 )
 
 add_executable(tp6 ${SOURCES})
 
-target_include_directories(tp6 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(tp6 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../lib)
 
 if(MSVC)
     target_compile_options(tp6 PRIVATE /W4 /permissive-)

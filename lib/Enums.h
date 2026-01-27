@@ -5,9 +5,7 @@ enum class Couleur {
     Rouge,
     Vert,
     Bleu,
-    Jaune,
-    Noir,
-    Blanc
+    Jaune
 };
 
 enum class Taille {

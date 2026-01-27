@@ -3,16 +3,10 @@
 
 #include <string>
 #include "Cercle.hpp"
-
-enum class Couleur {
-    ROUGE,
-    VERT,
-    BLEU,
-    VIOLET
-};
+#include "Enums.h"
 
 class Joueur {
-protected:
+private:
     Couleur couleur;
     std::string nom;
     int petitCercle;

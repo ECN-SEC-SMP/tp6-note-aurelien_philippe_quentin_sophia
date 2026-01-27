@@ -59,8 +59,6 @@ void Plateau::afficher() {
                     case Couleur::Vert:  l = 'V'; break;
                     case Couleur::Bleu:  l = 'B'; break;
                     case Couleur::Jaune: l = 'J'; break;
-                    case Couleur::Noir:  l = 'N'; break;
-                    case Couleur::Blanc: l = 'W'; break;
                     default: l = '?';
                 }
 

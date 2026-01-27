@@ -32,6 +32,11 @@ Implémentation du jeu Otrio avec 3 versions pour des joueurs humains et une int
 - **UML.md** : Diagramme des classes
 - **README.md** : Rapport de TP
 
+### 5. Tests
+
+Dossier `tests/` :
+- fichier `testPlateau.cpp` qui teste l'affichage, le placement, l'empilement, conflits, zone hors plateau, cas du remplissage complet
+
 ---
 
 ## Architecture
@@ -53,10 +58,10 @@ Voir [UML.md](UML.md) pour le diagramme complet des classes et leurs relations.
 | **Aurélien** | Classe Jeu |
 | **Philippe** | Joueurs : Classe joueur, classe humain |
 | **Quentin** | Enums, classe Case, classe Cercle, classe Machine |
-| **Sophia** | Programme principale (UI), classe Plateau |
+| **Sophia** | Programme principal (UI), classe Plateau |
 
 ### Répartition des Fichiers
-- `Plateau.cpp/.hpp`, `main.cpp` → Sophia
+- `Plateau.cpp/.hpp`, `testPlateau.cpp/.cpp`,`main.cpp` → Sophia
 - `Jeu.cpp` → Aurélien
 - `Joueur.cpp`, `Humain.cpp` → Philippe
 - `Machine.cpp`, `Case.cpp/.hpp`, `Cercle.cpp/.hpp`, `Enums.h` → Quentin

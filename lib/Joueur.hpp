@@ -2,6 +2,7 @@
 #define JOUEUR_HPP
 
 #include <string>
+#include <iostream> 
 #include "Cercle.hpp"
 #include "Enums.h"
 
@@ -16,7 +17,7 @@ private:
 public:
     Joueur(const std::string& nom, Couleur couleur);
 
-    Cercle retirerCercle(Taille taille);
+    void retirerCercle(Taille taille);
     bool aDesCercles() const;
     virtual void deciderAction() = 0;
 

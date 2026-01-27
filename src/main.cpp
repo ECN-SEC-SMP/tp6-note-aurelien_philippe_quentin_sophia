@@ -16,3 +16,4 @@ int main() {
     std::cout << "Merci d'avoir joue !" << std::endl;
     return 0;
 }
+

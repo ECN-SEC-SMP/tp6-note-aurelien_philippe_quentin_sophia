@@ -2,7 +2,7 @@
 #include <string>
 
 Jeu::Jeu(){
-    joueurs = std::vector<Joueur>();
+    joueurs = std::vector<Joueur*>();
     plateau = Plateau();
 }
 
@@ -11,13 +11,14 @@ int Jeu::getVersion(){
 }
 
 void Jeu::ajouterJoueurHumain(const std::string& nom, Couleur couleur){
-    Humain joueur = Humain(nom, couleur);
+    Joueur* joueur = new Humain(nom, couleur);
     joueurs.push_back(joueur);
 }
 
-// void Jeu::ajouterJoueurMachine(const std::string, Couleur couleur){
-//     // À implémenter plus tard
-// }
+void Jeu::ajouterJoueurMachine(const std::string& nom, Couleur couleur){
+    Joueur* joueur = new Machine(nom, couleur);
+    joueurs.push_back(joueur);
+}
 
 void Jeu::choisirVersion(){
     int version;
@@ -124,8 +125,8 @@ void Jeu::lancerTourSuivant(){
 
     // plateau.placerCercle();
 
-    if(testerVictoire(joueurs[joueurCourant].getCouleur()) || verifierFinDePartie()){
-        std::cout << "Le joueur " << joueurs[joueurCourant].getNom() << " a gagné" << std::endl;
+    if(testerVictoire(joueurs[joueurCourant]->getCouleur()) || verifierFinDePartie()){
+        std::cout << "Le joueur " << joueurs[joueurCourant]->getNom() << " a gagné" << std::endl;
         return;
     }
     else lancerTourSuivant();

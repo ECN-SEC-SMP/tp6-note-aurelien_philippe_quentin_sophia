@@ -19,6 +19,7 @@ class Jeu {
 
         // Accesseurs
         int getVersion();
+        Plateau& getPlateau() { return plateau; }
 
         // Mutateurs
 

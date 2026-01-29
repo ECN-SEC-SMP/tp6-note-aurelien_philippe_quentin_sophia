@@ -15,9 +15,10 @@ void Jeu::ajouterJoueurHumain(const std::string& nom, Couleur couleur){
     joueurs.push_back(joueur);
 }
 
-// void Jeu::ajouterJoueurMachine(const std::string, Couleur couleur){
-//     // À implémenter plus tard
-// }
+void Jeu::ajouterJoueurMachine(const std::string& nom, Couleur couleur){
+    Machine joueur = Machine(nom, couleur);
+    joueurs.push_back(joueur);
+}
 
 void Jeu::choisirVersion(){
     int version;
@@ -124,15 +125,125 @@ void Jeu::lancerTourSuivant(){
 
     // plateau.placerCercle();
 
-    if(testerVictoire() || verifierFinDePartie()){
-        std::cout << "Le joueur jsp quoi a gagné" << std::endl;
+    Couleur couleurCourante = joueurs[joueurCourant].getCouleur();
+    if(testerVictoire(couleurCourante) || verifierFinDePartie()){
+        std::cout << "Le joueur " << joueurs[joueurCourant].getNom() << " a gagné" << std::endl;
         return;
     }
     else lancerTourSuivant();
 }
 
-bool Jeu::testerVictoire(){
-    // TODO: implémenter la logique de test de victoire
+bool Jeu::testerVictoire(Couleur couleur){
+    // Test de victoire horizontale
+    for(int y = 0; y < 3; y++){
+        for(int taille_idx = 0; taille_idx < 3; taille_idx++){
+            Taille taille = static_cast<Taille>(taille_idx);
+            bool victoire = true;
+            for(int x = 0; x < 3; x++){
+                const Case& c = plateau.getCase(x, y);
+                bool found = false;
+                for(const Cercle& cercle : c.getCercles()){
+                    if(cercle.getCouleur() == couleur && cercle.getTaille() == taille){
+                        found = true;
+                        break;
+                    }
+                }
+                if(!found){
+                    victoire = false;
+                    break;
+                }
+            }
+            if(victoire) return true;
+        }
+    }
+
+    // Test de victoire verticale
+    for(int x = 0; x < 3; x++){
+        for(int taille_idx = 0; taille_idx < 3; taille_idx++){
+            Taille taille = static_cast<Taille>(taille_idx);
+            bool victoire = true;
+            for(int y = 0; y < 3; y++){
+                const Case& c = plateau.getCase(x, y);
+                bool found = false;
+                for(const Cercle& cercle : c.getCercles()){
+                    if(cercle.getCouleur() == couleur && cercle.getTaille() == taille){
+                        found = true;
+                        break;
+                    }
+                }
+                if(!found){
+                    victoire = false;
+                    break;
+                }
+            }
+            if(victoire) return true;
+        }
+    }
+
+    // Test de victoire diagonale (haut-gauche vers bas-droite)
+    for(int taille_idx = 0; taille_idx < 3; taille_idx++){
+        Taille taille = static_cast<Taille>(taille_idx);
+        bool victoire = true;
+        for(int i = 0; i < 3; i++){
+            const Case& c = plateau.getCase(i, i);
+            bool found = false;
+            for(const Cercle& cercle : c.getCercles()){
+                if(cercle.getCouleur() == couleur && cercle.getTaille() == taille){
+                    found = true;
+                    break;
+                }
+            }
+            if(!found){
+                victoire = false;
+                break;
+            }
+        }
+        if(victoire) return true;
+    }
+
+    // Test de victoire diagonale (haut-droite vers bas-gauche)
+    for(int taille_idx = 0; taille_idx < 3; taille_idx++){
+        Taille taille = static_cast<Taille>(taille_idx);
+        bool victoire = true;
+        for(int i = 0; i < 3; i++){
+            const Case& c = plateau.getCase(2 - i, i);
+            bool found = false;
+            for(const Cercle& cercle : c.getCercles()){
+                if(cercle.getCouleur() == couleur && cercle.getTaille() == taille){
+                    found = true;
+                    break;
+                }
+            }
+            if(!found){
+                victoire = false;
+                break;
+            }
+        }
+        if(victoire) return true;
+    }
+
+    // Test de victoire dans une seule case (3 tailles différentes de la même couleur)
+    for(int x = 0; x < 3; x++){
+        for(int y = 0; y < 3; y++){
+            const Case& c = plateau.getCase(x, y);
+            bool hasPetit = false;
+            bool hasMoyen = false;
+            bool hasGrand = false;
+            
+            for(const Cercle& cercle : c.getCercles()){
+                if(cercle.getCouleur() == couleur){
+                    if(cercle.getTaille() == Taille::Petit) hasPetit = true;
+                    if(cercle.getTaille() == Taille::Moyen) hasMoyen = true;
+                    if(cercle.getTaille() == Taille::Grand) hasGrand = true;
+                }
+            }
+            
+            if(hasPetit && hasMoyen && hasGrand){
+                return true;
+            }
+        }
+    }
+
     return false;
 }
 

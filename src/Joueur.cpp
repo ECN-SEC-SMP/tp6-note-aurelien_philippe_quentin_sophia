@@ -27,3 +27,8 @@ void Joueur::retirerCercle(Taille taille) {
     std::cout<<"Aucun cercle de cette taille à retirer pour le joueur " << nom << "." << std::endl;
     return;
 }
+
+std::string Joueur::deciderAction(Plateau& p) {
+    (void)p; // Suppress unused parameter warning
+    return "";
+}

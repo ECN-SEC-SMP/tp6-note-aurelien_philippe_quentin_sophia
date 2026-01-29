@@ -21,6 +21,8 @@ public:
     // Nécessaire pour que Jeu puisse tester la victoire
     // On retourne une référence constante (lecture seule) pour ne pas copier l'objet
     const Case& getCase(int x, int y) const;
+
+    const Case (&getGrille() const)[3][3] {return grille;};
 };
 
 #endif

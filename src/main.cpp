@@ -4,14 +4,14 @@
 int main() {
     std::cout << "=== BIENVENUE DANS OTRIO ===" << std::endl;
 
-    // 1. Création de l'instance du jeu
+/*     // 1. Création de l'instance du jeu
     Jeu partie;
 
     // 2. Initialisation (Création des joueurs, du plateau...)
     partie.initialiser();
 
     // 3. Lancement de la boucle principale
-    partie.lancerPartie();
+    partie.lancerPartie(); */
 
     std::cout << "Merci d'avoir joue !" << std::endl;
     return 0;

@@ -1,4 +1,4 @@
-#pragma once
+/* #pragma once
 
 #include <vector>
 #include "Enums.h"
@@ -32,4 +32,4 @@ class Jeu {
         void lancerTourSuivant();
         bool testerVictoire();
         bool verifierFinDePartie();
-};
+}; */

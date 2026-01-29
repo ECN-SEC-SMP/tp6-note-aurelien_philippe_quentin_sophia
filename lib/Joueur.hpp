@@ -20,7 +20,7 @@ public:
 
     void retirerCercle(Taille taille);
     bool aDesCercles() const;
-    virtual std::string deciderAction(Plateau& p) = 0;
+    virtual std::pair<std::pair<int, int>, Cercle>  deciderAction(Plateau& p);
 
 
     // Getters

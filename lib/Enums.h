@@ -9,7 +9,7 @@ enum class Couleur {
 };
 
 enum class Taille {
-    Petit,
-    Moyen,
-    Grand
+    Petit = 1,
+    Moyen = 2,
+    Grand = 3
 };

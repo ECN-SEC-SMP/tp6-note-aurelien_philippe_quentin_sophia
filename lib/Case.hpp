@@ -1,7 +1,7 @@
 #pragma once
 
-#include <vector>
 #include "Cercle.hpp"
+#include <vector>
 
 /**
  * @file Case.hpp
@@ -16,31 +16,30 @@
  * et de tester la présence d'un cercle.
  */
 class Case {
-    private:
-        std::vector<Cercle> cercles; /**< Conteneur des cercles dans la case */
-    public:
-        /**
-         * @brief Constructeur par défaut de `Case`.
-         */
-        Case();
+private:
+  std::vector<Cercle> cercles; /**< Conteneur des cercles dans la case */
+public:
+  /**
+   * @brief Constructeur par défaut de `Case`.
+   */
+  Case();
 
-        /**
-         * @brief Teste si un `Cercle` est déjà présent dans la case.
-         *
-         * @param[in] cercle Le cercle à rechercher.
-         * @return `true` si le cercle n'est pas présent (peut être ajouté),
-         *         `false` s'il est déjà présent.
-         */
-        bool testerCercles(const Cercle& cercle);
+  /**
+   * @brief Teste si un `Cercle` est déjà présent dans la case.
+   *
+   * @param[in] cercle Le cercle à rechercher.
+   * @return `true` si le cercle n'est pas présent (peut être ajouté),
+   *         `false` s'il est déjà présent.
+   */
+  bool testerCercles(const Cercle &cercle);
 
-        /**
-         * @brief Ajoute un `Cercle` à la case si possible.
-         *
-         * @param[in] cercle Le cercle à ajouter.
-         * @return `true` si l'ajout a réussi, `false` sinon.
-         */
-        bool ajouterCercle(const Cercle& cercle);
+  /**
+   * @brief Ajoute un `Cercle` à la case si possible.
+   *
+   * @param[in] cercle Le cercle à ajouter.
+   * @return `true` si l'ajout a réussi, `false` sinon.
+   */
+  bool ajouterCercle(const Cercle &cercle);
 
-        std::vector<Cercle> getCercles() {return this->cercles;};
-
+  std::vector<Cercle> getCercles() const { return this->cercles; };
 };

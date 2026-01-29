@@ -27,3 +27,7 @@ void Joueur::retirerCercle(Taille taille) {
     std::cout<<"Aucun cercle de cette taille à retirer pour le joueur " << nom << "." << std::endl;
     return;
 }
+
+std::pair<std::pair<int, int>, Cercle> Joueur::deciderAction(Plateau& plateau) {
+    return {{-1, -1}, Cercle()};
+}

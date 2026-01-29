@@ -1,4 +1,4 @@
-#include "Jeu.hpp"
+/* #include "Jeu.hpp"
 #include <string>
 
 Jeu::Jeu(){
@@ -132,4 +132,4 @@ bool Jeu::testerVictoire(){
 
 bool Jeu::verifierFinDePartie(){
 
-}
+} */

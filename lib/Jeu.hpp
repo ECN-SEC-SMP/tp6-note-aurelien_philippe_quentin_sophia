@@ -1,10 +1,11 @@
-/* #pragma once
+#pragma once
 
 #include <vector>
 #include "Enums.h"
 #include "Joueur.hpp"
 #include "Plateau.hpp"
-#include "Humain.hpp" 
+#include "Humain.hpp"
+#include "Machine.hpp" 
 
 class Jeu {
     private :
@@ -26,10 +27,10 @@ class Jeu {
         void ajouterJoueurMachine(const std::string& nom, Couleur couleur);
         void choisirVersion();
         int entrerNombreJoueurs();
-        void entrerJoueurs();
+        void entrerNomJoueurs();
         void initialiser(); 
         void lancerPartie();
         void lancerTourSuivant();
-        bool testerVictoire();
+        bool testerVictoire(Couleur couleur);
         bool verifierFinDePartie();
-}; */
+};

@@ -84,7 +84,7 @@ int main() {
     
     // Test 3: Diagonal victory
     Plateau p3;
-    testVisualisation("Test 3: Victory en diagonale");
+    testVisualisation("Test 3: Victoire diagonale");
     p3.placerCercle(0, 0, Cercle(Couleur::Bleu, Taille::Petit));
     p3.placerCercle(1, 1, Cercle(Couleur::Bleu, Taille::Moyen));
     p3.placerCercle(2, 2, Cercle(Couleur::Bleu, Taille::Grand));

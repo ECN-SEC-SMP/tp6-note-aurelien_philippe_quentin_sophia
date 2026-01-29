@@ -124,15 +124,156 @@ void Jeu::lancerTourSuivant(){
 
     // plateau.placerCercle();
 
-    if(testerVictoire() || verifierFinDePartie()){
+    Couleur couleurJoueur = joueurs[joueurCourant].getCouleur();
+    if(testerVictoire(couleurJoueur) || verifierFinDePartie()){
         std::cout << "Le joueur jsp quoi a gagné" << std::endl;
         return;
     }
     else lancerTourSuivant();
 }
 
-bool Jeu::testerVictoire(){
-    // TODO: implémenter la logique de test de victoire
+bool Jeu::testerVictoire(Couleur couleur){
+    // Victoire Condition 1: Trois cercles de la même couleur en ligne (horizontale, verticale ou diagonale)
+    // Victoire Condition 2: Trois cercles de la même couleur dans une même case (un de chaque taille)
+    // Victoire Condition 3: Trois cercles alignés où les trois tailles sont représentées (peu importe la couleur)
+
+    // Test Condition 1: Alignements (lignes, colonnes, diagonales)
+    // Vérifier les lignes et colonnes
+    for(int i = 0; i < 3; i++){
+        // Vérifier ligne i
+        int compteurLigne = 0;
+        for(int j = 0; j < 3; j++){
+            const Case& caseActuelle = plateau.getCase(i, j);
+            const std::vector<Cercle>& cercles = caseActuelle.getCercles();
+            for(const auto& cercle : cercles){
+                if(cercle.getCouleur() == couleur){
+                    compteurLigne++;
+                    break; // Un cercle de cette couleur dans cette case suffit
+                }
+            }
+        }
+        if(compteurLigne == 3) return true;
+
+        // Vérifier colonne i
+        int compteurColonne = 0;
+        for(int j = 0; j < 3; j++){
+            const Case& caseActuelle = plateau.getCase(j, i);
+            const std::vector<Cercle>& cercles = caseActuelle.getCercles();
+            for(const auto& cercle : cercles){
+                if(cercle.getCouleur() == couleur){
+                    compteurColonne++;
+                    break;
+                }
+            }
+        }
+        if(compteurColonne == 3) return true;
+    }
+
+    // Vérifier les diagonales
+    int compteurDiag1 = 0;
+    int compteurDiag2 = 0;
+    for(int i = 0; i < 3; i++){
+        // Diagonale principale (0,0) -> (1,1) -> (2,2)
+        const Case& case1 = plateau.getCase(i, i);
+        const std::vector<Cercle>& cercles1 = case1.getCercles();
+        for(const auto& cercle : cercles1){
+            if(cercle.getCouleur() == couleur){
+                compteurDiag1++;
+                break;
+            }
+        }
+
+        // Diagonale secondaire (0,2) -> (1,1) -> (2,0)
+        const Case& case2 = plateau.getCase(i, 2 - i);
+        const std::vector<Cercle>& cercles2 = case2.getCercles();
+        for(const auto& cercle : cercles2){
+            if(cercle.getCouleur() == couleur){
+                compteurDiag2++;
+                break;
+            }
+        }
+    }
+    if(compteurDiag1 == 3 || compteurDiag2 == 3) return true;
+
+    // Test Condition 2: Trois cercles de même couleur dans une même case
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            const Case& caseActuelle = plateau.getCase(i, j);
+            const std::vector<Cercle>& cercles = caseActuelle.getCercles();
+            
+            bool aPetit = false, aMoyen = false, aGrand = false;
+            for(const auto& cercle : cercles){
+                if(cercle.getCouleur() == couleur){
+                    if(cercle.getTaille() == Taille::Petit) aPetit = true;
+                    if(cercle.getTaille() == Taille::Moyen) aMoyen = true;
+                    if(cercle.getTaille() == Taille::Grand) aGrand = true;
+                }
+            }
+            if(aPetit && aMoyen && aGrand) return true;
+        }
+    }
+
+    // Test Condition 3: Trois cercles en ligne avec les trois tailles différentes
+    // Vérifier les lignes
+    for(int i = 0; i < 3; i++){
+        bool aPetit = false, aMoyen = false, aGrand = false;
+        for(int j = 0; j < 3; j++){
+            const Case& caseActuelle = plateau.getCase(i, j);
+            const std::vector<Cercle>& cercles = caseActuelle.getCercles();
+            for(const auto& cercle : cercles){
+                if(cercle.getTaille() == Taille::Petit) aPetit = true;
+                if(cercle.getTaille() == Taille::Moyen) aMoyen = true;
+                if(cercle.getTaille() == Taille::Grand) aGrand = true;
+            }
+        }
+        if(aPetit && aMoyen && aGrand) return true;
+    }
+
+    // Vérifier les colonnes
+    for(int i = 0; i < 3; i++){
+        bool aPetit = false, aMoyen = false, aGrand = false;
+        for(int j = 0; j < 3; j++){
+            const Case& caseActuelle = plateau.getCase(j, i);
+            const std::vector<Cercle>& cercles = caseActuelle.getCercles();
+            for(const auto& cercle : cercles){
+                if(cercle.getTaille() == Taille::Petit) aPetit = true;
+                if(cercle.getTaille() == Taille::Moyen) aMoyen = true;
+                if(cercle.getTaille() == Taille::Grand) aGrand = true;
+            }
+        }
+        if(aPetit && aMoyen && aGrand) return true;
+    }
+
+    // Vérifier diagonale principale
+    {
+        bool aPetit = false, aMoyen = false, aGrand = false;
+        for(int i = 0; i < 3; i++){
+            const Case& caseActuelle = plateau.getCase(i, i);
+            const std::vector<Cercle>& cercles = caseActuelle.getCercles();
+            for(const auto& cercle : cercles){
+                if(cercle.getTaille() == Taille::Petit) aPetit = true;
+                if(cercle.getTaille() == Taille::Moyen) aMoyen = true;
+                if(cercle.getTaille() == Taille::Grand) aGrand = true;
+            }
+        }
+        if(aPetit && aMoyen && aGrand) return true;
+    }
+
+    // Vérifier diagonale secondaire
+    {
+        bool aPetit = false, aMoyen = false, aGrand = false;
+        for(int i = 0; i < 3; i++){
+            const Case& caseActuelle = plateau.getCase(i, 2 - i);
+            const std::vector<Cercle>& cercles = caseActuelle.getCercles();
+            for(const auto& cercle : cercles){
+                if(cercle.getTaille() == Taille::Petit) aPetit = true;
+                if(cercle.getTaille() == Taille::Moyen) aMoyen = true;
+                if(cercle.getTaille() == Taille::Grand) aGrand = true;
+            }
+        }
+        if(aPetit && aMoyen && aGrand) return true;
+    }
+
     return false;
 }
 

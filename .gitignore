@@ -1,0 +1,11 @@
+# Build artifacts
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.o
+*.out
+*.exe

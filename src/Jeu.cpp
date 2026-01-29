@@ -111,9 +111,14 @@ void Jeu::initialiser(){
     lancerPartie();
 }
 
+void Jeu::lancerPartie(){
+    std::cout << "=== Début de la partie ===" << std::endl;
+    lancerTourSuivant();
+}
+
 void Jeu::lancerTourSuivant(){
     // Demander action au joueur courant
-    joueurs[joueurCourant].deciderAction();
+    // joueurs[joueurCourant].deciderAction();
 
     // tester si le joueur a le cercle décidé
 
@@ -127,9 +132,11 @@ void Jeu::lancerTourSuivant(){
 }
 
 bool Jeu::testerVictoire(){
-
+    // TODO: implémenter la logique de test de victoire
+    return false;
 }
 
 bool Jeu::verifierFinDePartie(){
-
+    // TODO: implémenter la logique de vérification de fin de partie
+    return false;
 }

@@ -4,7 +4,8 @@
 #include "Enums.h"
 #include "Joueur.hpp"
 #include "Plateau.hpp"
-#include "Humain.hpp" 
+#include "Humain.hpp"
+#include "Machine.hpp" 
 
 class Jeu {
     private :
@@ -30,6 +31,6 @@ class Jeu {
         void initialiser(); 
         void lancerPartie();
         void lancerTourSuivant();
-        bool testerVictoire();
+        bool testerVictoire(Couleur couleur);
         bool verifierFinDePartie();
 };

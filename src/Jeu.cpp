@@ -1,8 +1,9 @@
 #include "Jeu.hpp"
 #include <string>
+#include <memory>
 
 Jeu::Jeu(){
-    joueurs = std::vector<Joueur*>();
+    joueurs = std::vector<std::unique_ptr<Joueur>>();
     plateau = Plateau();
 }
 
@@ -11,13 +12,11 @@ int Jeu::getVersion(){
 }
 
 void Jeu::ajouterJoueurHumain(const std::string& nom, Couleur couleur){
-    Joueur* joueur = new Humain(nom, couleur);
-    joueurs.push_back(joueur);
+    joueurs.push_back(std::make_unique<Humain>(nom, couleur));
 }
 
 void Jeu::ajouterJoueurMachine(const std::string& nom, Couleur couleur){
-    Joueur* joueur = new Machine(nom, couleur);
-    joueurs.push_back(joueur);
+    joueurs.push_back(std::make_unique<Machine>(nom, couleur));
 }
 
 void Jeu::choisirVersion(){
@@ -125,8 +124,13 @@ void Jeu::lancerTourSuivant(){
 
     // plateau.placerCercle();
 
-    if(testerVictoire(joueurs[joueurCourant]->getCouleur()) || verifierFinDePartie()){
-        std::cout << "Le joueur " << joueurs[joueurCourant]->getNom() << " a gagné" << std::endl;
+    if(testerVictoire(joueurs[joueurCourant]->getCouleur())){
+        std::cout << "Le joueur " << joueurs[joueurCourant]->getNom() << " a gagné !" << std::endl;
+        return;
+    }
+    
+    if(verifierFinDePartie()){
+        std::cout << "Fin de partie" << std::endl;
         return;
     }
     else lancerTourSuivant();

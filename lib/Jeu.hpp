@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <memory>
 #include "Enums.h"
 #include "Joueur.hpp"
 #include "Plateau.hpp"
@@ -10,7 +11,7 @@
 class Jeu {
     private :
         int version;
-        std::vector<Joueur*> joueurs;
+        std::vector<std::unique_ptr<Joueur>> joueurs;
         Plateau plateau;
         int joueurCourant;
     public :

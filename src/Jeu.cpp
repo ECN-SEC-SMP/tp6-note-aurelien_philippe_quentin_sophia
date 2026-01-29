@@ -2,7 +2,7 @@
 #include <string>
 
 Jeu::Jeu(){
-    joueurs = std::vector<Joueur*>();
+    joueurs = std::vector<std::unique_ptr<Joueur>>();
     plateau = Plateau();
 }
 
@@ -11,8 +11,7 @@ int Jeu::getVersion(){
 }
 
 void Jeu::ajouterJoueurHumain(const std::string& nom, Couleur couleur){
-    Joueur* joueur = new Humain(nom, couleur);
-    joueurs.push_back(joueur);
+    joueurs.push_back(std::make_unique<Humain>(nom, couleur));
 }
 
 void Jeu::ajouterJoueurMachine(const std::string& nom, Couleur couleur){
@@ -137,93 +136,42 @@ void Jeu::lancerTourSuivant(){
 }
 
 bool Jeu::testerVictoire(Couleur couleur){
-    // Check rows for victory
-    for(int y = 0; y < 3; y++){
-        bool victoire = true;
-        for(int x = 0; x < 3; x++){
-            const Case& currentCase = plateau.getCase(x, y);
-            const std::vector<Cercle>& cercles = currentCase.getCercles();
-            
-            bool hasCouleur = false;
-            for(const auto& cercle : cercles){
-                if(cercle.getCouleur() == couleur){
-                    hasCouleur = true;
-                    break;
-                }
-            }
-            
-            if(!hasCouleur){
-                victoire = false;
-                break;
+    // Helper lambda to check if a cell has the given color
+    auto caseHasCouleur = [&](int x, int y) -> bool {
+        const Case& currentCase = plateau.getCase(x, y);
+        const std::vector<Cercle>& cercles = currentCase.getCercles();
+        
+        for(const auto& cercle : cercles){
+            if(cercle.getCouleur() == couleur){
+                return true;
             }
         }
-        if(victoire) return true;
+        return false;
+    };
+    
+    // Check rows for victory
+    for(int y = 0; y < 3; y++){
+        if(caseHasCouleur(0, y) && caseHasCouleur(1, y) && caseHasCouleur(2, y)){
+            return true;
+        }
     }
     
     // Check columns for victory
     for(int x = 0; x < 3; x++){
-        bool victoire = true;
-        for(int y = 0; y < 3; y++){
-            const Case& currentCase = plateau.getCase(x, y);
-            const std::vector<Cercle>& cercles = currentCase.getCercles();
-            
-            bool hasCouleur = false;
-            for(const auto& cercle : cercles){
-                if(cercle.getCouleur() == couleur){
-                    hasCouleur = true;
-                    break;
-                }
-            }
-            
-            if(!hasCouleur){
-                victoire = false;
-                break;
-            }
+        if(caseHasCouleur(x, 0) && caseHasCouleur(x, 1) && caseHasCouleur(x, 2)){
+            return true;
         }
-        if(victoire) return true;
     }
     
     // Check diagonal (top-left to bottom-right)
-    bool victoire = true;
-    for(int i = 0; i < 3; i++){
-        const Case& currentCase = plateau.getCase(i, i);
-        const std::vector<Cercle>& cercles = currentCase.getCercles();
-        
-        bool hasCouleur = false;
-        for(const auto& cercle : cercles){
-            if(cercle.getCouleur() == couleur){
-                hasCouleur = true;
-                break;
-            }
-        }
-        
-        if(!hasCouleur){
-            victoire = false;
-            break;
-        }
+    if(caseHasCouleur(0, 0) && caseHasCouleur(1, 1) && caseHasCouleur(2, 2)){
+        return true;
     }
-    if(victoire) return true;
     
     // Check diagonal (top-right to bottom-left)
-    victoire = true;
-    for(int i = 0; i < 3; i++){
-        const Case& currentCase = plateau.getCase(2 - i, i);
-        const std::vector<Cercle>& cercles = currentCase.getCercles();
-        
-        bool hasCouleur = false;
-        for(const auto& cercle : cercles){
-            if(cercle.getCouleur() == couleur){
-                hasCouleur = true;
-                break;
-            }
-        }
-        
-        if(!hasCouleur){
-            victoire = false;
-            break;
-        }
+    if(caseHasCouleur(2, 0) && caseHasCouleur(1, 1) && caseHasCouleur(0, 2)){
+        return true;
     }
-    if(victoire) return true;
     
     return false;
 }

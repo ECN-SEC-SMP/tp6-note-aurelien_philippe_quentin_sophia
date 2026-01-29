@@ -41,6 +41,6 @@ class Case {
          */
         bool ajouterCercle(const Cercle& cercle);
 
-        const std::vector<Cercle>& getCercles() const {return this->cercles;}
+        const std::vector<Cercle>& getCercles() const {return this->cercles;};
 
 };

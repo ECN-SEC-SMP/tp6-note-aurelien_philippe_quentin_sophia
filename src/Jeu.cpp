@@ -124,15 +124,131 @@ void Jeu::lancerTourSuivant(){
 
     // plateau.placerCercle();
 
-    if(testerVictoire() || verifierFinDePartie()){
-        std::cout << "Le joueur jsp quoi a gagné" << std::endl;
+    Couleur couleurCourante = joueurs[joueurCourant].getCouleur();
+    
+    if(testerVictoire(couleurCourante) || verifierFinDePartie()){
+        std::cout << "Le joueur " << joueurs[joueurCourant].getNom() << " a gagné !" << std::endl;
         return;
     }
     else lancerTourSuivant();
 }
 
-bool Jeu::testerVictoire(){
-    // TODO: implémenter la logique de test de victoire
+bool Jeu::testerVictoire(Couleur couleur){
+    // Vérifier les alignements horizontaux, verticaux et diagonaux
+    
+    // 1. Vérifier les alignements de même couleur
+    // Lignes horizontales
+    for(int y = 0; y < 3; y++){
+        for(Taille taille : {Taille::Petit, Taille::Moyen, Taille::Grand}){
+            bool aligned = true;
+            for(int x = 0; x < 3; x++){
+                const Case& c = plateau.getCase(x, y);
+                const std::vector<Cercle>& cercles = c.getCercles();
+                
+                bool found = false;
+                for(const Cercle& cercle : cercles){
+                    if(cercle.getCouleur() == couleur && cercle.getTaille() == taille){
+                        found = true;
+                        break;
+                    }
+                }
+                if(!found){
+                    aligned = false;
+                    break;
+                }
+            }
+            if(aligned) return true;
+        }
+    }
+    
+    // Colonnes verticales
+    for(int x = 0; x < 3; x++){
+        for(Taille taille : {Taille::Petit, Taille::Moyen, Taille::Grand}){
+            bool aligned = true;
+            for(int y = 0; y < 3; y++){
+                const Case& c = plateau.getCase(x, y);
+                const std::vector<Cercle>& cercles = c.getCercles();
+                
+                bool found = false;
+                for(const Cercle& cercle : cercles){
+                    if(cercle.getCouleur() == couleur && cercle.getTaille() == taille){
+                        found = true;
+                        break;
+                    }
+                }
+                if(!found){
+                    aligned = false;
+                    break;
+                }
+            }
+            if(aligned) return true;
+        }
+    }
+    
+    // Diagonale principale (0,0 -> 2,2)
+    for(Taille taille : {Taille::Petit, Taille::Moyen, Taille::Grand}){
+        bool aligned = true;
+        for(int i = 0; i < 3; i++){
+            const Case& c = plateau.getCase(i, i);
+            const std::vector<Cercle>& cercles = c.getCercles();
+            
+            bool found = false;
+            for(const Cercle& cercle : cercles){
+                if(cercle.getCouleur() == couleur && cercle.getTaille() == taille){
+                    found = true;
+                    break;
+                }
+            }
+            if(!found){
+                aligned = false;
+                break;
+            }
+        }
+        if(aligned) return true;
+    }
+    
+    // Diagonale anti-principale (0,2 -> 2,0)
+    for(Taille taille : {Taille::Petit, Taille::Moyen, Taille::Grand}){
+        bool aligned = true;
+        for(int i = 0; i < 3; i++){
+            const Case& c = plateau.getCase(i, 2-i);
+            const std::vector<Cercle>& cercles = c.getCercles();
+            
+            bool found = false;
+            for(const Cercle& cercle : cercles){
+                if(cercle.getCouleur() == couleur && cercle.getTaille() == taille){
+                    found = true;
+                    break;
+                }
+            }
+            if(!found){
+                aligned = false;
+                break;
+            }
+        }
+        if(aligned) return true;
+    }
+    
+    // 2. Vérifier les stacks complets (3 cercles de tailles différentes dans une même case)
+    for(int x = 0; x < 3; x++){
+        for(int y = 0; y < 3; y++){
+            const Case& c = plateau.getCase(x, y);
+            const std::vector<Cercle>& cercles = c.getCercles();
+            
+            if(cercles.size() == 3){
+                // Vérifier si les 3 cercles sont de la même couleur
+                bool sameColor = true;
+                for(const Cercle& cercle : cercles){
+                    if(cercle.getCouleur() != couleur){
+                        sameColor = false;
+                        break;
+                    }
+                }
+                if(sameColor) return true;
+            }
+        }
+    }
+    
     return false;
 }
 

@@ -124,15 +124,154 @@ void Jeu::lancerTourSuivant(){
 
     // plateau.placerCercle();
 
-    if(testerVictoire() || verifierFinDePartie()){
+    Couleur couleurJoueurCourant = joueurs[joueurCourant].getCouleur();
+    if(testerVictoire(couleurJoueurCourant) || verifierFinDePartie()){
         std::cout << "Le joueur jsp quoi a gagné" << std::endl;
         return;
     }
     else lancerTourSuivant();
 }
 
-bool Jeu::testerVictoire(){
-    // TODO: implémenter la logique de test de victoire
+bool Jeu::testerVictoire(Couleur couleur){
+    // Victoire type 1: Trois cercles de même couleur en ligne (horizontale, verticale ou diagonale)
+    // avec au moins un cercle de chaque taille visible (petit, moyen, grand) sur les 3 cases
+    
+    // Vérification des lignes horizontales
+    for(int y = 0; y < 3; y++){
+        bool petitTrouve = false, moyenTrouve = false, grandTrouve = false;
+        bool ligneCouleurOK = true;
+        
+        for(int x = 0; x < 3; x++){
+            const std::vector<Cercle>& cercles = plateau.getCase(x, y).getCercles();
+            bool caseCouleurOK = false;
+            
+            for(const Cercle& c : cercles){
+                if(c.getCouleur() == couleur){
+                    caseCouleurOK = true;
+                    if(c.getTaille() == Taille::Petit) petitTrouve = true;
+                    if(c.getTaille() == Taille::Moyen) moyenTrouve = true;
+                    if(c.getTaille() == Taille::Grand) grandTrouve = true;
+                }
+            }
+            
+            if(!caseCouleurOK){
+                ligneCouleurOK = false;
+                break;
+            }
+        }
+        
+        if(ligneCouleurOK && petitTrouve && moyenTrouve && grandTrouve){
+            return true;
+        }
+    }
+    
+    // Vérification des colonnes verticales
+    for(int x = 0; x < 3; x++){
+        bool petitTrouve = false, moyenTrouve = false, grandTrouve = false;
+        bool colonneCouleurOK = true;
+        
+        for(int y = 0; y < 3; y++){
+            const std::vector<Cercle>& cercles = plateau.getCase(x, y).getCercles();
+            bool caseCouleurOK = false;
+            
+            for(const Cercle& c : cercles){
+                if(c.getCouleur() == couleur){
+                    caseCouleurOK = true;
+                    if(c.getTaille() == Taille::Petit) petitTrouve = true;
+                    if(c.getTaille() == Taille::Moyen) moyenTrouve = true;
+                    if(c.getTaille() == Taille::Grand) grandTrouve = true;
+                }
+            }
+            
+            if(!caseCouleurOK){
+                colonneCouleurOK = false;
+                break;
+            }
+        }
+        
+        if(colonneCouleurOK && petitTrouve && moyenTrouve && grandTrouve){
+            return true;
+        }
+    }
+    
+    // Vérification de la diagonale descendante (top-left à bottom-right)
+    {
+        bool petitTrouve = false, moyenTrouve = false, grandTrouve = false;
+        bool diagonaleCouleurOK = true;
+        
+        for(int i = 0; i < 3; i++){
+            const std::vector<Cercle>& cercles = plateau.getCase(i, i).getCercles();
+            bool caseCouleurOK = false;
+            
+            for(const Cercle& c : cercles){
+                if(c.getCouleur() == couleur){
+                    caseCouleurOK = true;
+                    if(c.getTaille() == Taille::Petit) petitTrouve = true;
+                    if(c.getTaille() == Taille::Moyen) moyenTrouve = true;
+                    if(c.getTaille() == Taille::Grand) grandTrouve = true;
+                }
+            }
+            
+            if(!caseCouleurOK){
+                diagonaleCouleurOK = false;
+                break;
+            }
+        }
+        
+        if(diagonaleCouleurOK && petitTrouve && moyenTrouve && grandTrouve){
+            return true;
+        }
+    }
+    
+    // Vérification de la diagonale ascendante (bottom-left à top-right)
+    {
+        bool petitTrouve = false, moyenTrouve = false, grandTrouve = false;
+        bool diagonaleCouleurOK = true;
+        
+        for(int i = 0; i < 3; i++){
+            const std::vector<Cercle>& cercles = plateau.getCase(i, 2 - i).getCercles();
+            bool caseCouleurOK = false;
+            
+            for(const Cercle& c : cercles){
+                if(c.getCouleur() == couleur){
+                    caseCouleurOK = true;
+                    if(c.getTaille() == Taille::Petit) petitTrouve = true;
+                    if(c.getTaille() == Taille::Moyen) moyenTrouve = true;
+                    if(c.getTaille() == Taille::Grand) grandTrouve = true;
+                }
+            }
+            
+            if(!caseCouleurOK){
+                diagonaleCouleurOK = false;
+                break;
+            }
+        }
+        
+        if(diagonaleCouleurOK && petitTrouve && moyenTrouve && grandTrouve){
+            return true;
+        }
+    }
+    
+    // Victoire type 2: Trois cercles de même couleur et taille croissante dans une même case
+    for(int x = 0; x < 3; x++){
+        for(int y = 0; y < 3; y++){
+            const std::vector<Cercle>& cercles = plateau.getCase(x, y).getCercles();
+            bool petitTrouve = false, moyenTrouve = false, grandTrouve = false;
+            
+            for(const Cercle& c : cercles){
+                if(c.getCouleur() == couleur){
+                    if(c.getTaille() == Taille::Petit) petitTrouve = true;
+                    if(c.getTaille() == Taille::Moyen) moyenTrouve = true;
+                    if(c.getTaille() == Taille::Grand) grandTrouve = true;
+                }
+            }
+            
+            if(petitTrouve && moyenTrouve && grandTrouve){
+                return true;
+            }
+        }
+    }
+    
     return false;
 }
 

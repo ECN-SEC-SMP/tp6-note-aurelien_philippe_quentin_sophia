@@ -236,15 +236,22 @@ bool Jeu::testerVictoire(Couleur couleur){
             const std::vector<Cercle>& cercles = c.getCercles();
             
             if(cercles.size() == 3){
-                // Vérifier si les 3 cercles sont de la même couleur
+                // Vérifier si les 3 cercles sont de la même couleur et de tailles différentes
+                bool petit = false, moyen = false, grand = false;
                 bool sameColor = true;
+                
                 for(const Cercle& cercle : cercles){
                     if(cercle.getCouleur() != couleur){
                         sameColor = false;
                         break;
                     }
+                    if(cercle.getTaille() == Taille::Petit) petit = true;
+                    else if(cercle.getTaille() == Taille::Moyen) moyen = true;
+                    else if(cercle.getTaille() == Taille::Grand) grand = true;
                 }
-                if(sameColor) return true;
+                
+                // Victoire si même couleur et 3 tailles différentes
+                if(sameColor && petit && moyen && grand) return true;
             }
         }
     }

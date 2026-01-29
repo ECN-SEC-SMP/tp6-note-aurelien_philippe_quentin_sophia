@@ -1,0 +1,17 @@
+# Build directories
+build/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Compiled files
+*.o
+*.out
+*.exe
+
+# Test executables
+test_otrio

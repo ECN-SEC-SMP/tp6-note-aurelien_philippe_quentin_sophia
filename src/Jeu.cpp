@@ -2,7 +2,7 @@
 #include <string>
 
 Jeu::Jeu(){
-    joueurs = std::vector<Joueur>();
+    joueurs = std::vector<Joueur*>();
     plateau = Plateau();
 }
 
@@ -11,13 +11,15 @@ int Jeu::getVersion(){
 }
 
 void Jeu::ajouterJoueurHumain(const std::string& nom, Couleur couleur){
-    Humain joueur = Humain(nom, couleur);
+    Joueur* joueur = new Humain(nom, couleur);
     joueurs.push_back(joueur);
 }
 
-// void Jeu::ajouterJoueurMachine(const std::string, Couleur couleur){
-//     // À implémenter plus tard
-// }
+void Jeu::ajouterJoueurMachine(const std::string& nom, Couleur couleur){
+    // TODO: À implémenter plus tard quand Machine sera défini
+    (void)nom; // Suppress unused parameter warning
+    (void)couleur; // Suppress unused parameter warning
+}
 
 void Jeu::choisirVersion(){
     int version;
@@ -124,15 +126,105 @@ void Jeu::lancerTourSuivant(){
 
     // plateau.placerCercle();
 
-    if(testerVictoire() || verifierFinDePartie()){
+    // Get current player's color
+    Couleur couleurJoueurCourant = joueurs[joueurCourant]->getCouleur();
+    
+    if(testerVictoire(couleurJoueurCourant) || verifierFinDePartie()){
         std::cout << "Le joueur jsp quoi a gagné" << std::endl;
         return;
     }
     else lancerTourSuivant();
 }
 
-bool Jeu::testerVictoire(){
-    // TODO: implémenter la logique de test de victoire
+bool Jeu::testerVictoire(Couleur couleur){
+    // Check rows for victory
+    for(int y = 0; y < 3; y++){
+        bool victoire = true;
+        for(int x = 0; x < 3; x++){
+            const Case& currentCase = plateau.getCase(x, y);
+            const std::vector<Cercle>& cercles = currentCase.getCercles();
+            
+            bool hasCouleur = false;
+            for(const auto& cercle : cercles){
+                if(cercle.getCouleur() == couleur){
+                    hasCouleur = true;
+                    break;
+                }
+            }
+            
+            if(!hasCouleur){
+                victoire = false;
+                break;
+            }
+        }
+        if(victoire) return true;
+    }
+    
+    // Check columns for victory
+    for(int x = 0; x < 3; x++){
+        bool victoire = true;
+        for(int y = 0; y < 3; y++){
+            const Case& currentCase = plateau.getCase(x, y);
+            const std::vector<Cercle>& cercles = currentCase.getCercles();
+            
+            bool hasCouleur = false;
+            for(const auto& cercle : cercles){
+                if(cercle.getCouleur() == couleur){
+                    hasCouleur = true;
+                    break;
+                }
+            }
+            
+            if(!hasCouleur){
+                victoire = false;
+                break;
+            }
+        }
+        if(victoire) return true;
+    }
+    
+    // Check diagonal (top-left to bottom-right)
+    bool victoire = true;
+    for(int i = 0; i < 3; i++){
+        const Case& currentCase = plateau.getCase(i, i);
+        const std::vector<Cercle>& cercles = currentCase.getCercles();
+        
+        bool hasCouleur = false;
+        for(const auto& cercle : cercles){
+            if(cercle.getCouleur() == couleur){
+                hasCouleur = true;
+                break;
+            }
+        }
+        
+        if(!hasCouleur){
+            victoire = false;
+            break;
+        }
+    }
+    if(victoire) return true;
+    
+    // Check diagonal (top-right to bottom-left)
+    victoire = true;
+    for(int i = 0; i < 3; i++){
+        const Case& currentCase = plateau.getCase(2 - i, i);
+        const std::vector<Cercle>& cercles = currentCase.getCercles();
+        
+        bool hasCouleur = false;
+        for(const auto& cercle : cercles){
+            if(cercle.getCouleur() == couleur){
+                hasCouleur = true;
+                break;
+            }
+        }
+        
+        if(!hasCouleur){
+            victoire = false;
+            break;
+        }
+    }
+    if(victoire) return true;
+    
     return false;
 }
 

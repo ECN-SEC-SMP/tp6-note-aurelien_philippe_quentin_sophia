@@ -142,7 +142,7 @@ bool Jeu::testerVictoire(Couleur couleur){
             bool ligne_gagnante = true;
             for(int x = 0; x < 3; x++){
                 const Case& case_courante = plateau.getCase(x, y);
-                std::vector<Cercle> cercles = case_courante.getCercles();
+                const std::vector<Cercle>& cercles = case_courante.getCercles();
                 bool trouve = false;
                 for(const auto& c : cercles){
                     if(c.getCouleur() == couleur && c.getTaille() == taille){
@@ -163,7 +163,7 @@ bool Jeu::testerVictoire(Couleur couleur){
             bool colonne_gagnante = true;
             for(int y = 0; y < 3; y++){
                 const Case& case_courante = plateau.getCase(x, y);
-                std::vector<Cercle> cercles = case_courante.getCercles();
+                const std::vector<Cercle>& cercles = case_courante.getCercles();
                 bool trouve = false;
                 for(const auto& c : cercles){
                     if(c.getCouleur() == couleur && c.getTaille() == taille){
@@ -183,7 +183,7 @@ bool Jeu::testerVictoire(Couleur couleur){
         bool diag_principale = true;
         for(int i = 0; i < 3; i++){
             const Case& case_courante = plateau.getCase(i, i);
-            std::vector<Cercle> cercles = case_courante.getCercles();
+            const std::vector<Cercle>& cercles = case_courante.getCercles();
             bool trouve = false;
             for(const auto& c : cercles){
                 if(c.getCouleur() == couleur && c.getTaille() == taille){
@@ -202,7 +202,7 @@ bool Jeu::testerVictoire(Couleur couleur){
         bool diag_anti = true;
         for(int i = 0; i < 3; i++){
             const Case& case_courante = plateau.getCase(i, 2-i);
-            std::vector<Cercle> cercles = case_courante.getCercles();
+            const std::vector<Cercle>& cercles = case_courante.getCercles();
             bool trouve = false;
             for(const auto& c : cercles){
                 if(c.getCouleur() == couleur && c.getTaille() == taille){
@@ -222,7 +222,7 @@ bool Jeu::testerVictoire(Couleur couleur){
     for(int x = 0; x < 3; x++){
         for(int y = 0; y < 3; y++){
             const Case& case_courante = plateau.getCase(x, y);
-            std::vector<Cercle> cercles = case_courante.getCercles();
+            const std::vector<Cercle>& cercles = case_courante.getCercles();
             bool a_petit = false, a_moyen = false, a_grand = false;
             for(const auto& c : cercles){
                 if(c.getCouleur() == couleur){

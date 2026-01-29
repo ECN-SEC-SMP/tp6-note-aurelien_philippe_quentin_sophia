@@ -1,0 +1,9 @@
+build/
+*.o
+*.d
+tp6
+test_otrio
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile

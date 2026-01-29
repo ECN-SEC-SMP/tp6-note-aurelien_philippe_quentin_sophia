@@ -124,15 +124,146 @@ void Jeu::lancerTourSuivant(){
 
     // plateau.placerCercle();
 
-    if(testerVictoire() || verifierFinDePartie()){
-        std::cout << "Le joueur jsp quoi a gagné" << std::endl;
+    if(testerVictoire(joueurs[joueurCourant].getCouleur()) || verifierFinDePartie()){
+        std::cout << "Le joueur " << joueurs[joueurCourant].getNom() << " a gagné" << std::endl;
         return;
     }
     else lancerTourSuivant();
 }
 
-bool Jeu::testerVictoire(){
-    // TODO: implémenter la logique de test de victoire
+bool Jeu::testerVictoire(Couleur couleur){
+    // Vérifier les lignes (horizontales)
+    for(int y = 0; y < 3; y++){
+        // Vérifier si 3 cercles de la même couleur sont alignés en ligne
+        int count = 0;
+        for(int x = 0; x < 3; x++){
+            const std::vector<Cercle>& cercles = plateau.getCase(x, y).getCercles();
+            for(const auto& c : cercles){
+                if(c.getCouleur() == couleur){
+                    count++;
+                    break; // Un seul cercle de cette couleur par case suffit
+                }
+            }
+        }
+        if(count == 3) return true;
+    }
+    
+    // Vérifier les colonnes (verticales)
+    for(int x = 0; x < 3; x++){
+        int count = 0;
+        for(int y = 0; y < 3; y++){
+            const std::vector<Cercle>& cercles = plateau.getCase(x, y).getCercles();
+            for(const auto& c : cercles){
+                if(c.getCouleur() == couleur){
+                    count++;
+                    break;
+                }
+            }
+        }
+        if(count == 3) return true;
+    }
+    
+    // Vérifier la diagonale principale (haut-gauche à bas-droite)
+    int countDiag1 = 0;
+    for(int i = 0; i < 3; i++){
+        const std::vector<Cercle>& cercles = plateau.getCase(i, i).getCercles();
+        for(const auto& c : cercles){
+            if(c.getCouleur() == couleur){
+                countDiag1++;
+                break;
+            }
+        }
+    }
+    if(countDiag1 == 3) return true;
+    
+    // Vérifier la diagonale inverse (haut-droite à bas-gauche)
+    int countDiag2 = 0;
+    for(int i = 0; i < 3; i++){
+        const std::vector<Cercle>& cercles = plateau.getCase(2-i, i).getCercles();
+        for(const auto& c : cercles){
+            if(c.getCouleur() == couleur){
+                countDiag2++;
+                break;
+            }
+        }
+    }
+    if(countDiag2 == 3) return true;
+    
+    // Vérifier les 3 tailles dans une même case (Petit, Moyen, Grand de même couleur)
+    for(int x = 0; x < 3; x++){
+        for(int y = 0; y < 3; y++){
+            const std::vector<Cercle>& cercles = plateau.getCase(x, y).getCercles();
+            bool aPetit = false, aMoyen = false, aGrand = false;
+            for(const auto& c : cercles){
+                if(c.getCouleur() == couleur){
+                    if(c.getTaille() == Taille::Petit) aPetit = true;
+                    if(c.getTaille() == Taille::Moyen) aMoyen = true;
+                    if(c.getTaille() == Taille::Grand) aGrand = true;
+                }
+            }
+            if(aPetit && aMoyen && aGrand) return true;
+        }
+    }
+    
+    // Vérifier les lignes avec 3 cercles de même taille
+    for(Taille taille : {Taille::Petit, Taille::Moyen, Taille::Grand}){
+        // Lignes horizontales
+        for(int y = 0; y < 3; y++){
+            int count = 0;
+            for(int x = 0; x < 3; x++){
+                const std::vector<Cercle>& cercles = plateau.getCase(x, y).getCercles();
+                for(const auto& c : cercles){
+                    if(c.getCouleur() == couleur && c.getTaille() == taille){
+                        count++;
+                        break;
+                    }
+                }
+            }
+            if(count == 3) return true;
+        }
+        
+        // Colonnes verticales
+        for(int x = 0; x < 3; x++){
+            int count = 0;
+            for(int y = 0; y < 3; y++){
+                const std::vector<Cercle>& cercles = plateau.getCase(x, y).getCercles();
+                for(const auto& c : cercles){
+                    if(c.getCouleur() == couleur && c.getTaille() == taille){
+                        count++;
+                        break;
+                    }
+                }
+            }
+            if(count == 3) return true;
+        }
+        
+        // Diagonale principale
+        int countDiag1 = 0;
+        for(int i = 0; i < 3; i++){
+            const std::vector<Cercle>& cercles = plateau.getCase(i, i).getCercles();
+            for(const auto& c : cercles){
+                if(c.getCouleur() == couleur && c.getTaille() == taille){
+                    countDiag1++;
+                    break;
+                }
+            }
+        }
+        if(countDiag1 == 3) return true;
+        
+        // Diagonale inverse
+        int countDiag2 = 0;
+        for(int i = 0; i < 3; i++){
+            const std::vector<Cercle>& cercles = plateau.getCase(2-i, i).getCercles();
+            for(const auto& c : cercles){
+                if(c.getCouleur() == couleur && c.getTaille() == taille){
+                    countDiag2++;
+                    break;
+                }
+            }
+        }
+        if(countDiag2 == 3) return true;
+    }
+    
     return false;
 }
 

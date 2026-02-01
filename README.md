@@ -4,8 +4,13 @@
 Implémentation du jeu Otrio avec 3 versions pour des joueurs humains et une intelligence artificielle basique. Le jeu se joue sur un plateau 3x3 avec des cercles de différentes tailles.
 
 ## Procédure de compilation et lancement
-1) cd build && cmake --build .
-2) ./tp6
+1) mkdir build
+2) cd build
+3) cmake ../cmake
+4) cmake --build .
+5) ./unittests 
+6) ./tp6
+
 
 ---
 

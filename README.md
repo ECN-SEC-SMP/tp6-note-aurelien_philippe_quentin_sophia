@@ -6,7 +6,7 @@ Implémentation du jeu Otrio avec 3 versions pour des joueurs humains et une int
 ## Procédure de compilation et lancement
 1) mkdir build
 2) cd build
-3) cmake ../cmake
+3) cmake ..
 4) cmake --build .
 5) ./unittests 
 6) ./tp6

@@ -28,6 +28,10 @@ void Joueur::retirerCercle(Taille taille) {
     return;
 }
 
+bool Joueur::aDesCercles() const {
+    return (petitCercle > 0 || moyenCercle > 0 || grandCercle > 0);
+}
+
 std::pair<std::pair<int, int>, Cercle> Joueur::deciderAction(Plateau& plateau) {
     return {{-1, -1}, Cercle()};
 }

@@ -11,7 +11,7 @@ std::pair<std::pair<int, int>, Cercle> Humain::deciderAction(Plateau& p) {
                 << std::endl;
 
     std::string saisieJoueur;
-    std::getline(std::cin, saisieJoueur);
+    std::cin >> saisieJoueur;
     
     std::pair<std::pair<int, int>, Cercle> action;
     if (saisieJoueur.length() != 3) {

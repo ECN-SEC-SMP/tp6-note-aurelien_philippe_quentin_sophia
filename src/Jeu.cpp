@@ -140,7 +140,6 @@ void Jeu::lancerTourSuivant(){
     if (version == 1) {
         action = joueurs[joueurCourant]->deciderAction(plateau);
     }
-    action = joueurs[joueurCourant]->deciderAction(plateau);
 
     // tester si le joueur a le cercle qu'il a décidé
     plateau.placerCercle(action.first.first/* case[X] */, action.first.second /* case[Y]*/, action.second/* Cercle */);

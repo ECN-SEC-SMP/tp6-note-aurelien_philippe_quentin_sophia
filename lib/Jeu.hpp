@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <memory>
 #include "Enums.h"
 #include "Joueur.hpp"
 #include "Plateau.hpp"

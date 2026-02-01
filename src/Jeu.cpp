@@ -20,8 +20,9 @@ void Jeu::ajouterJoueurHumain(const std::string& nom, Couleur couleur){
     joueurs.push_back(std::make_unique<Humain>(nom, couleur));
 }
 
-// void Jeu::ajouterJoueurMachine(const std::string, Couleur couleur){
-//     //TODO À implémenter plus tard
+// void Jeu::ajouterJoueurMachine(const std::string& nom, Couleur couleur){
+//     Machine machine = Machine(nom, couleur);
+//     joueurs.push_back(std::make_unique<Machine>(nom, couleur));
 // }
 
 void Jeu::choisirVersion(){
@@ -135,38 +136,137 @@ void Jeu::lancerPartie(){
 
 void Jeu::lancerTourSuivant(){
     std::pair<std::pair<int, int>, Cercle> action;
+    bool testAction = false;
+
     plateau.afficher();
-    // Demander action au joueur courant
-    if (version == 1) {
+
+    // Demander action au joueur courant    
+    //action = joueurs[joueurCourant]->deciderAction(plateau);
+
+    // while(testAction){
+        // Demander action au joueur (humain ou machine)
         action = joueurs[joueurCourant]->deciderAction(plateau);
-    }
 
-    // tester si le joueur a le cercle qu'il a décidé
-    plateau.placerCercle(action.first.first/* case[X] */, action.first.second /* case[Y]*/, action.second/* Cercle */);
+        // Tester compteur de cercle du joueur en fonction de l'action
+        if((action.second.getTaille() == Taille::Petit) && (joueurs[joueurCourant]->getPetitCercle() > 0)){
+            // Tenter de poser
+            testAction = plateau.placerCercle(action.first.first, action.first.second, action.second);
+        }
+        else if((action.second.getTaille() == Taille::Moyen) && (joueurs[joueurCourant]->getMoyenCercle() > 0)){
+            testAction = plateau.placerCercle(action.first.first, action.first.second, action.second);
+        }
+        else if((action.second.getTaille() == Taille::Grand) && (joueurs[joueurCourant]->getGrandCercle() > 0)){
+            testAction = plateau.placerCercle(action.first.first, action.first.second, action.second);
+        }
+    // }
+    if(testAction){
+        // Quand l'action est validée on retire le cercle au joueur
+        joueurs[joueurCourant]->retirerCercle(action.second.getTaille());
+        if(testerVictoire(joueurs[joueurCourant]->getCouleur(), action)){
+            std::cout << joueurs[joueurCourant]->getNom() << " a gagné !" << std::endl;
+        }
+        else {
+            // Joueur suivant
+            joueurCourant = (joueurCourant + 1) % 4;
 
-    if(testerVictoire(joueurs[joueurCourant]->getCouleur())){
-        std::cout << joueurs[joueurCourant]->getNom() << "a gagné !" << std::endl;
+            if(!verifierFinDePartie()){
+                std::cout << "C'est au tour de " << joueurs[joueurCourant]->getNom() << std::endl;
+                lancerTourSuivant();
+            }
+            else{
+                std::cout << "Plus personne n'a de cercle, match nul !" << std::endl;
+            }
+        }
     }
     else {
-        // Joueur suivant
-        joueurCourant = (joueurCourant + 1) % 4;
-
-        if(!verifierFinDePartie()){
-            std::cout << "C'est au tour de " << joueurs[joueurCourant]->getNom() << std::endl;
-            lancerTourSuivant();
-        }
-        else{
-            std::cout << "Plus personne n'a de cercle, match nul !" << std::endl;
-        }
+        // Redemande un choix au joueur courant
+        lancerTourSuivant();
     }
 }
 
-bool Jeu::testerVictoire(Couleur couleur){  
-    bool test = false;
+bool Jeu::testerVictoire(Couleur couleur, std::pair<std::pair<int, int>, Cercle> lastAction){  
+    // Test superposition (3 cercles de meme couleur sur une case)
+    Case caseTestee = plateau.getCase(lastAction.first.first, lastAction.first.second);
+    int compteurCercles = 0;
+    for(Cercle cercleCourant : caseTestee.getCercles()){
+        if(cercleCourant.getCouleur() == couleur){
+            compteurCercles++;
+        }
+    }
+    if(compteurCercles == 3){
+        return true;
+    }
 
-    // A implétmenter
+    // Test aligenement de trois cercles identiques en taille et couleur
+    // Horizontal
+    for(int y = 0; y < 3; y++){
+        int cptCercle = 0;
+        for(int x = 0; x < 3; x++){
+            Case caseCourante = plateau.getCase(x,y);
+            for(Cercle cercleCourant : caseCourante.getCercles()){
+                if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == lastAction.second.getTaille()){
+                    cptCercle++;
+                    break;
+                }
+            }
+        }
+        if(cptCercle == 3){
+            return true;
+        }
+    }
 
-    return test;
+    // Vertical
+    for(int x = 0; x < 3; x++){
+        int cptCercle = 0;
+        for(int y = 0; y < 3; y++){
+            Case caseCourante = plateau.getCase(x,y);
+            for(Cercle cercleCourant : caseCourante.getCercles()){
+                if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == lastAction.second.getTaille()){
+                    cptCercle++;
+                    break;
+                }
+            }
+        }
+        if(cptCercle == 3){
+            return true;
+        }
+    }
+
+    // Diagonale 
+    for(int i = 0; i < 3; i++){
+        int cptCercle = 0;
+        Case caseCourante = plateau.getCase(i, i);
+        for(Cercle cercleCourant : caseCourante.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == lastAction.second.getTaille()){
+                cptCercle++;
+                break;
+            }
+        }
+        if(cptCercle == 3){
+            return true;
+        }
+    }
+    
+    for(int i = 0; i < 3; i++){
+        Case caseCourante = plateau.getCase(i, 2 - i);
+        int cptCercle = 0;
+        for(Cercle cercleCourant : caseCourante.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == lastAction.second.getTaille()){
+                cptCercle++;
+                break;
+            }
+        }
+        if(cptCercle == 3){
+            return true;
+        }
+    }
+    
+    // Test suite du plus petit au plus grand de meme couleur en alignement
+    // Horizontal
+    // Vertical
+    // Diagonal
+
+    return false;
 }
 
 bool Jeu::verifierFinDePartie(){

@@ -32,6 +32,6 @@ class Jeu {
         void initialiser(); 
         void lancerPartie();
         void lancerTourSuivant();
-        bool testerVictoire(Couleur couleur);
+        bool testerVictoire(Couleur couleur, std::pair<std::pair<int, int>, Cercle> lastAction);
         bool verifierFinDePartie();
 };

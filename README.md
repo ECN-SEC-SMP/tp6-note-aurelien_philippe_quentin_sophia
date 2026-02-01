@@ -45,8 +45,6 @@ Implémentation du jeu Otrio avec 3 versions pour des joueurs humains et une int
 Voir [UML.md](UML.md) pour le diagramme complet des classes et leurs relations.
 
 ### Collaborations
-- Lien Excalidraw (tableau interactif) : https://excalidraw.com/#room=ea663029a2f5d0156c9e,mXN1gxchhdujUEnQ5p9o7A
-
 - Lien Mermaid (diagramme de classes) : https://mermaid.ai/app/projects/84b852e5-5100-4d66-8dab-02dbfe78b077/diagrams/d162bb1f-1ef2-4b2b-a193-4e41ef5dca2f/share/invite/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudElEIjoiZDE2MmJiMWYtMWVmMi00YjJiLWExOTMtNGU0MWVmNWRjYTJmIiwiYWNjZXNzIjoiVmlldyIsImlhdCI6MTc2ODkyMDU5NH0.GMzww-fmbTNQI7TzBGFAdZksDuhMCwJ5AlaOUCv2m84
 
 ---
@@ -60,10 +58,10 @@ Voir [UML.md](UML.md) pour le diagramme complet des classes et leurs relations.
 | **Aurélien** | Classe Jeu |
 | **Philippe** | Joueurs : Classe joueur, classe humain, GTests |
 | **Quentin** | Enums, classe Case, classe Cercle, Machine "testerMenaceImminente" |
-| **Sophia** | classe Plateau, Machine "deciderAction" |
+| **Sophia** | classe Plateau, Machine "deciderAction", tests unitaires|
 
 ### Répartition des Fichiers
-- `Plateau.cpp/.hpp`, `Machine.cpp`, `main.cpp` → Sophia
+- `Plateau.cpp/.hpp`, `Machine.cpp`, `main.cpp`, `/tests` → Sophia
 - `Jeu.cpp` → Aurélien
 - `Joueur.cpp`, `Humain.cpp` → Philippe
 - `Machine.cpp`, `Case.cpp/.hpp`, `Cercle.cpp/.hpp`, `Enums.h` → Quentin

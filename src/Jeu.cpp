@@ -140,25 +140,21 @@ void Jeu::lancerTourSuivant(){
 
     plateau.afficher();
 
-    // Demander action au joueur courant    
-    //action = joueurs[joueurCourant]->deciderAction(plateau);
+    // Demander action au joueur (humain ou machine)
+    action = joueurs[joueurCourant]->deciderAction(plateau);
 
-    // while(testAction){
-        // Demander action au joueur (humain ou machine)
-        action = joueurs[joueurCourant]->deciderAction(plateau);
-
-        // Tester compteur de cercle du joueur en fonction de l'action
-        if((action.second.getTaille() == Taille::Petit) && (joueurs[joueurCourant]->getPetitCercle() > 0)){
-            // Tenter de poser
-            testAction = plateau.placerCercle(action.first.first, action.first.second, action.second);
-        }
-        else if((action.second.getTaille() == Taille::Moyen) && (joueurs[joueurCourant]->getMoyenCercle() > 0)){
-            testAction = plateau.placerCercle(action.first.first, action.first.second, action.second);
-        }
-        else if((action.second.getTaille() == Taille::Grand) && (joueurs[joueurCourant]->getGrandCercle() > 0)){
-            testAction = plateau.placerCercle(action.first.first, action.first.second, action.second);
-        }
-    // }
+    // Tester compteur de cercle du joueur en fonction de l'action
+    if((action.second.getTaille() == Taille::Petit) && (joueurs[joueurCourant]->getPetitCercle() > 0)){
+        // Tenter de poser
+        testAction = plateau.placerCercle(action.first.first, action.first.second, action.second);
+    }
+    else if((action.second.getTaille() == Taille::Moyen) && (joueurs[joueurCourant]->getMoyenCercle() > 0)){
+        testAction = plateau.placerCercle(action.first.first, action.first.second, action.second);
+    }
+    else if((action.second.getTaille() == Taille::Grand) && (joueurs[joueurCourant]->getGrandCercle() > 0)){
+        testAction = plateau.placerCercle(action.first.first, action.first.second, action.second);
+    }
+    
     if(testAction){
         // Quand l'action est validée on retire le cercle au joueur
         joueurs[joueurCourant]->retirerCercle(action.second.getTaille());

@@ -121,18 +121,18 @@ void Jeu::initialiser(){
 void Jeu::lancerPartie(){
 
     // Début de la partie
-    std::cout << "<========> Début de la partie <========>" << std::endl;
+    std::cout << "<========> Début de la partie <========>" << std::endl << std::endl;
 
     // Tirage 
     this->joueurCourant = rand() % joueurs.size();
 
-    std::cout << "C'est " << joueurs[joueurCourant]->getNom() << " qui commence !" << std::endl;
+    std::cout << "\033[32m" << "C'est " << joueurs[joueurCourant]->getNom() << " qui commence !" << "\033[0m" << std::endl;
 
     lancerTourSuivant();
 
     plateau.afficher();
 
-    std::cout << "<========> Fin de la partie <========>" << std::endl;
+    std::cout << "<========> Fin de la partie <========>" << std::endl << std::endl;
 }
 
 void Jeu::lancerTourSuivant(){
@@ -155,6 +155,7 @@ void Jeu::lancerTourSuivant(){
     else if((action.second.getTaille() == Taille::Grand) && (joueurs[joueurCourant]->getGrandCercle() > 0)){
         testAction = plateau.placerCercle(action.first.first, action.first.second, action.second);
     }
+    else std::cout << "\033[31m" <<"Aucun cercle de cette taille à retirer pour le joueur " << joueurs[joueurCourant]->getNom() << "." << "\033[0m" << std::endl;
     
     if(testAction){
         // Quand l'action est validée on retire le cercle au joueur
@@ -167,11 +168,11 @@ void Jeu::lancerTourSuivant(){
             joueurCourant = (joueurCourant + 1) % joueurs.size();
 
             if(!verifierFinDePartie()){
-                std::cout << "C'est au tour de " << joueurs[joueurCourant]->getNom() << std::endl;
+                std::cout << "\033[32m" << "C'est au tour de " << joueurs[joueurCourant]->getNom() << "\033[0m" << std::endl;
                 lancerTourSuivant();
             }
             else{
-                std::cout << "Plus personne n'a de cercle, match nul !" << std::endl;
+                std::cout << "\033[32m" << "Plus personne n'a de cercle, match nul !" << "\033[0m" << std::endl;
             }
         }
     }
@@ -230,7 +231,7 @@ bool Jeu::testerVictoire(Couleur couleur, std::pair<std::pair<int, int>, Cercle>
         }
     }
 
-    // Diagonale NOK
+    // Diagonale
     int cptCercle = 0;
     for(int i = 0; i < 3; i++){
         Case caseCourante = plateau.getCase(i, i);
@@ -262,8 +263,189 @@ bool Jeu::testerVictoire(Couleur couleur, std::pair<std::pair<int, int>, Cercle>
     
     // Test suite du plus petit au plus grand de meme couleur en alignement
     // Horizontal
+    // Commençant par un petit
+    
+    for(int x = 0; x < 3; x++){
+        cptCercle = 0;
+        Case case1 = plateau.getCase(x, 0);
+        Case case2 = plateau.getCase(x, 1);
+        Case case3 = plateau.getCase(x, 2);
+
+        for(Cercle cercleCourant : case1.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == Taille::Petit){
+                cptCercle++;
+            }
+        }
+        for(Cercle cercleCourant : case2.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == Taille::Moyen){
+                cptCercle++;
+            }
+        }
+        for(Cercle cercleCourant : case3.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == Taille::Grand){
+                cptCercle++;
+            }
+        }
+        if(cptCercle == 3){
+            return true;
+        }
+    }
+
+    // Et commençant par le plus grand
+
+    for(int x = 0; x < 3; x++){
+        cptCercle = 0;
+        Case case1 = plateau.getCase(x, 0);
+        Case case2 = plateau.getCase(x, 1);
+        Case case3 = plateau.getCase(x, 2);
+
+        for(Cercle cercleCourant : case1.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == Taille::Grand){
+                cptCercle++;
+            }
+        }
+        for(Cercle cercleCourant : case2.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == Taille::Moyen){
+                cptCercle++;
+            }
+        }
+        for(Cercle cercleCourant : case3.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == Taille::Petit){
+                cptCercle++;
+            }
+        }
+        if(cptCercle == 3){
+            return true;
+        }
+    }
+
     // Vertical
-    // Diagonal
+    // Commençant par un petit
+    
+    for(int y = 0; y < 3; y++){
+        cptCercle = 0;
+        Case case1 = plateau.getCase(0, y);
+        Case case2 = plateau.getCase(1, y);
+        Case case3 = plateau.getCase(2, y);
+
+        for(Cercle cercleCourant : case1.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == Taille::Petit){
+                cptCercle++;
+            }
+        }
+        for(Cercle cercleCourant : case2.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == Taille::Moyen){
+                cptCercle++;
+            }
+        }
+        for(Cercle cercleCourant : case3.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == Taille::Grand){
+                cptCercle++;
+            }
+        }
+        if(cptCercle == 3){
+            return true;
+        }
+    }
+
+    // Et commençant par le plus grand
+
+    for(int y = 0; y < 3; y++){
+        cptCercle = 0;
+        Case case1 = plateau.getCase(0, y);
+        Case case2 = plateau.getCase(1, y);
+        Case case3 = plateau.getCase(2, y);
+
+        for(Cercle cercleCourant : case1.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == Taille::Grand){
+                cptCercle++;
+            }
+        }
+        for(Cercle cercleCourant : case2.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == Taille::Moyen){
+                cptCercle++;
+            }
+        }
+        for(Cercle cercleCourant : case3.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == Taille::Petit){
+                cptCercle++;
+            }
+        }
+        if(cptCercle == 3){
+            return true;
+        }
+    }
+
+    // Diagonales
+    cptCercle = 0;
+    Case centre = plateau.getCase(1, 1);
+    Case angle1 = plateau.getCase(0,0);
+    Case angle2 = plateau.getCase(2,0);
+    Case angle3 = plateau.getCase(0,2);
+    Case angle4 = plateau.getCase(2,2);
+    for(int i = 0; i < 3; i++){
+        
+    }
+
+    // Diagonale1 petit -> Grand
+    cptCercle = 0;
+    for(int i = 0; i < 3; i++){
+        Case caseCourante = plateau.getCase(i, i);
+        for(Cercle cercleCourant : caseCourante.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == static_cast<Taille>(i + 1)){
+                cptCercle++;
+                break;
+            }
+        }
+        if(cptCercle == 3){
+            return true;
+        }
+    }
+
+    // Diagonale1 Grand -> petit
+    cptCercle = 0;
+    for(int i = 0; i < 3; i++){
+        Case caseCourante = plateau.getCase(i, i);
+        for(Cercle cercleCourant : caseCourante.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == static_cast<Taille>(3 - i)){
+                cptCercle++;
+                break;
+            }
+        }
+        if(cptCercle == 3){
+            return true;
+        }
+    }
+
+    // Diagonale2 petit -> Grand
+    cptCercle = 0;
+    for(int i = 0; i < 3; i++){
+        Case caseCourante = plateau.getCase(i, 2-i);
+        for(Cercle cercleCourant : caseCourante.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == static_cast<Taille>(i + 1)){
+                cptCercle++;
+                break;
+            }
+        }
+        if(cptCercle == 3){
+            return true;
+        }
+    }
+
+    // Diagonale2 Grand -> petit
+    cptCercle = 0;
+    for(int i = 0; i < 3; i++){
+        Case caseCourante = plateau.getCase(i, 2-i);
+        for(Cercle cercleCourant : caseCourante.getCercles()){
+            if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == static_cast<Taille>(3 - i)){
+                cptCercle++;
+                break;
+            }
+        }
+        if(cptCercle == 3){
+            return true;
+        }
+    }
 
     return false;
 }

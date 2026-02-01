@@ -43,23 +43,28 @@ void Plateau::afficher() {
         for (int x = 0; x < 3; x++) {
             
             // Représentation visuelle par défaut
-            char petit = '.';
-            char moyen = '.';
-            char grand = '.';
+            string petit = ".";
+            string moyen = ".";
+            string grand = ".";
 
             // Récupération des cercles pour l'affichage
             const vector<Cercle>& contenu = grille[x][y].getCercles();
 
             for (const auto& c : contenu) {
-                char l = '?';
+                string l = "?";
                 
                 // Utilisation du getter getCouleur()
                 switch (c.getCouleur()) {
-                    case Couleur::Rouge: l = 'R'; break;
-                    case Couleur::Vert:  l = 'V'; break;
-                    case Couleur::Bleu:  l = 'B'; break;
-                    case Couleur::Jaune: l = 'J'; break;
-                    default: l = '?';
+                    // case Couleur::Rouge: l = 'R'; break;
+                    // case Couleur::Vert:  l = 'V'; break;
+                    // case Couleur::Bleu:  l = 'B'; break;
+                    // case Couleur::Jaune: l = 'J'; break;
+
+                    case Couleur::Rouge: l = "\033[31mR\033[0m"; break; 
+                    case Couleur::Vert: l = "\033[32mV\033[0m"; break;
+                    case Couleur::Bleu: l = "\033[34mB\033[0m"; break;
+                    case Couleur::Jaune: l = "\033[33mJ\033[0m"; break;
+                    default: l = "?";
                 }
 
                 // Utilisation du getter getTaille()

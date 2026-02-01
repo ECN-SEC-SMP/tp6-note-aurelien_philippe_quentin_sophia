@@ -13,7 +13,7 @@ int main() {
     // 3. Lancement de la boucle principale
     partie.lancerPartie();
 
-    std::cout << "Merci d'avoir joue !" << std::endl;
+    std::cout << "Merci d'avoir joué !" << std::endl;
     return 0;
 }
 

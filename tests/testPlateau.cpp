@@ -1,59 +1,59 @@
-#include <iostream>
+#include <gtest/gtest.h>
 #include "Plateau.hpp"
 #include "Cercle.hpp"
 #include "Enums.h"
 
-using namespace std;
+// Fixture pour éviter de redéclarer le plateau à chaque test
+class PlateauTest : public ::testing::Test {
+protected:
+    Plateau p;
+};
 
-void testVisualisation(string titre) {
-    cout << "\n--- TEST : " << titre << " ---" << endl;
+// 1. Test du placement valide
+TEST_F(PlateauTest, PlacementValide) {
+    Cercle c1(Couleur::Rouge, Taille::Petit);
+    // On s'attend à ce que placerCercle retourne true
+    EXPECT_TRUE(p.placerCercle(0, 0, c1));
 }
 
-int main() {
-    // 1. Création du plateau
-    Plateau p;
-    testVisualisation("Affichage du plateau vide");
-    p.afficher();
-
-    // 2. Test d'un placement valide (Petit Rouge en 0,0)
-    testVisualisation("Placement Valide : Petit Rouge en (0,0)");
-    Cercle c1(Couleur::Rouge, Taille::Petit);
-    bool resultat = p.placerCercle(0, 0, c1);
+// 2. Test de l'empilement (tailles différentes sur la même case)
+TEST_F(PlateauTest, EmpilementTaillesDifferentes) {
+    Cercle petit(Couleur::Rouge, Taille::Petit);
+    Cercle moyen(Couleur::Vert, Taille::Moyen);
     
-    if (resultat) cout << "Succès !" << endl;
-    else cout << "Échec inattendu..." << endl;
-    p.afficher();
-
-    // 3. Test de superposition valide (Moyen Vert en 0,0)
-    // Cela doit marcher car la taille est différente
-    testVisualisation("Empilement Valide : Moyen Vert en (0,0)");
-    Cercle c2(Couleur::Vert, Taille::Moyen);
-    if (p.placerCercle(0, 0, c2)) {
-        cout << "Succès ! On doit voir [R V .]" << endl;
-    }
-    p.afficher();
-
-    // 4. Test CRITIQUE : Conflit de taille (Petit Bleu en 0,0)
-    // Cela DOIT échouer car il y a déjà un Petit Rouge
-    testVisualisation("Test Conflit : Petit Bleu en (0,0) -> Doit échouer");
-    Cercle c3(Couleur::Bleu, Taille::Petit);
-    if (p.placerCercle(0, 0, c3)) {
-        cout << "ERREUR : Le coup aurait du être bloqué !" << endl;
-    } else {
-        cout << "Bravo : Le coup a bien été bloqué (Taille déjà prise)." << endl;
-    }
-
-    // 5. Test Hors Limites
-    testVisualisation("Test Hors Limites : (-1, 5)");
-    p.placerCercle(-1, 5, c1);
-
-    // 6. Remplissage d'une autre case pour voir l'affichage global
-    testVisualisation("Remplissage complet case (2,2)");
-    p.placerCercle(2, 2, Cercle(Couleur::Jaune, Taille::Petit));
-    p.placerCercle(2, 2, Cercle(Couleur::Noir, Taille::Moyen));
-    p.placerCercle(2, 2, Cercle(Couleur::Blanc, Taille::Grand));
+    p.placerCercle(0, 0, petit);
     
-    p.afficher();
+    // On s'attend à ce que cela réussisse car les tailles sont différentes
+    EXPECT_TRUE(p.placerCercle(0, 0, moyen));
+}
 
-    return 0;
+// 3. Test du conflit de taille (Même taille sur la même case)
+TEST_F(PlateauTest, ConflitTailleIdentique) {
+    Cercle rougePetit(Couleur::Rouge, Taille::Petit);
+    Cercle bleuPetit(Couleur::Bleu, Taille::Petit);
+    
+    p.placerCercle(0, 0, rougePetit);
+    
+    // On s'attend à ce que cela échoue (false) car la place 'Petit' est prise
+    EXPECT_FALSE(p.placerCercle(0, 0, bleuPetit));
+}
+
+// 4. Test des limites du plateau
+TEST_F(PlateauTest, HorsLimites) {
+    Cercle c(Couleur::Rouge, Taille::Petit);
+    
+    // Test coordonnées négatives et trop grandes
+    EXPECT_FALSE(p.placerCercle(-1, 0, c));
+    EXPECT_FALSE(p.placerCercle(0, 5, c));
+}
+
+// 5. Test de remplissage complet d'une case
+TEST_F(PlateauTest, CasePleine) {
+    EXPECT_TRUE(p.placerCercle(2, 2, Cercle(Couleur::Jaune, Taille::Petit)));
+    EXPECT_TRUE(p.placerCercle(2, 2, Cercle(Couleur::Vert, Taille::Moyen)));
+    EXPECT_TRUE(p.placerCercle(2, 2, Cercle(Couleur::Bleu, Taille::Grand)));
+    
+    // Un quatrième ajout sur la même case devrait échouer (si votre logique le prévoit)
+    Cercle surplus(Couleur::Rouge, Taille::Petit);
+    EXPECT_FALSE(p.placerCercle(2, 2, surplus));
 }

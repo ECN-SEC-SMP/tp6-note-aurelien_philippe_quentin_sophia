@@ -4,7 +4,7 @@
 // Constructeur
 
 Jeu::Jeu(){
-    joueurs = std::vector<Joueur>();
+    joueurs = std::vector<std::unique_ptr<Joueur>>();
     plateau = Plateau();
 }
 // Getter
@@ -17,11 +17,11 @@ int Jeu::getVersion(){
 
 void Jeu::ajouterJoueurHumain(const std::string& nom, Couleur couleur){
     Humain joueur = Humain(nom, couleur);
-    joueurs.push_back(joueur);
+    joueurs.push_back(std::make_unique<Humain>(nom, couleur));
 }
 
 // void Jeu::ajouterJoueurMachine(const std::string, Couleur couleur){
-//     // À implémenter plus tard
+//     //TODO À implémenter plus tard
 // }
 
 void Jeu::choisirVersion(){
@@ -30,8 +30,9 @@ void Jeu::choisirVersion(){
     std::cin >> version;
     if(version >= 1 && version <= 3){
         this->version = version;
+        std::cout << "Version choisie : " << version << std::endl;
     } else {
-        std::cout << "La version entrée n'est pas valide. Retentez (1 2 ou 3) : ";
+        std::cout << "La version entrée n'est pas valide. Retentez (1 2 ou 3) : " <<std::endl;
         choisirVersion();
     }
 }
@@ -58,6 +59,7 @@ void Jeu::entrerNomJoueurs(){
 
             std::cout << "Entrez le nom du joueur " << i+1 << " : ";
             std::cin >> nom;
+
             ajouterJoueurHumain(nom, static_cast<Couleur>(i));
         }
     }
@@ -124,7 +126,7 @@ void Jeu::lancerPartie(){
     // Tirage 
     this->joueurCourant = rand() % joueurs.size();
 
-    std::cout << "C'est " << joueurs[joueurCourant].getNom() << " qui commence !" << std::endl;
+    std::cout << "C'est " << joueurs[joueurCourant]->getNom() << " qui commence !" << std::endl;
 
     lancerTourSuivant();
 
@@ -132,23 +134,26 @@ void Jeu::lancerPartie(){
 }
 
 void Jeu::lancerTourSuivant(){
-    std::string action;
+    std::pair<std::pair<int, int>, Cercle> action;
+    plateau.afficher();
     // Demander action au joueur courant
-    // action = joueurs[joueurCourant].deciderAction(plateau);
+    if (version == 1) {
+        action = joueurs[joueurCourant]->deciderAction(plateau);
+    }
+    action = joueurs[joueurCourant]->deciderAction(plateau);
 
     // tester si le joueur a le cercle qu'il a décidé
+    plateau.placerCercle(action.first.first/* case[X] */, action.first.second /* case[Y]*/, action.second/* Cercle */);
 
-    // plateau.placerCercle();
-
-    if(testerVictoire(joueurs[joueurCourant].getCouleur())){
-        std::cout << joueurs[joueurCourant].getNom() << "a gagné !" << std::endl;
+    if(testerVictoire(joueurs[joueurCourant]->getCouleur())){
+        std::cout << joueurs[joueurCourant]->getNom() << "a gagné !" << std::endl;
     }
     else {
         // Joueur suivant
         joueurCourant = (joueurCourant + 1) % 4;
 
         if(!verifierFinDePartie()){
-            std::cout << "C'est au tour de " << joueurs[joueurCourant].getNom() << std::endl;
+            std::cout << "C'est au tour de " << joueurs[joueurCourant]->getNom() << std::endl;
             lancerTourSuivant();
         }
         else{
@@ -166,7 +171,7 @@ bool Jeu::testerVictoire(Couleur couleur){
 }
 
 bool Jeu::verifierFinDePartie(){
-    if((joueurs[joueurCourant].getGrandCercle() == 0) && (joueurs[joueurCourant].getMoyenCercle() == 0) && (joueurs[joueurCourant].getPetitCercle() == 0)){
+    if((joueurs[joueurCourant]->getGrandCercle() == 0) && (joueurs[joueurCourant]->getMoyenCercle() == 0) && (joueurs[joueurCourant]->getPetitCercle() == 0)){
         // Le joueur qui doit jouer n'a plus de cercle donc la partie est finie
         return true;
     }

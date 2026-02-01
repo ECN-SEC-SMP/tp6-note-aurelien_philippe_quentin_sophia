@@ -10,7 +10,7 @@
 class Jeu {
     private :
         int version;
-        std::vector<Joueur> joueurs;
+        std::vector<std::unique_ptr<Joueur>> joueurs;
         Plateau plateau;
         int joueurCourant;
     public :

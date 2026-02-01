@@ -52,11 +52,11 @@ Voir [UML.md](UML.md) pour le diagramme complet des classes et leurs relations.
 |--------|-----------------------------|
 | **Aurélien** | Classe Jeu |
 | **Philippe** | Joueurs : Classe joueur, classe humain |
-| **Quentin** | Enums, classe Case, classe Cercle, classe Machine |
-| **Sophia** | Programme principale (UI), classe Plateau |
+| **Quentin** | Enums, classe Case, classe Cercle, Machine "testerMenaceImminente" |
+| **Sophia** | classe Plateau, Machine "deciderAction" |
 
 ### Répartition des Fichiers
-- `Plateau.cpp/.hpp`, `main.cpp` → Sophia
+- `Plateau.cpp/.hpp`, `Machine.cpp`, `main.cpp` → Sophia
 - `Jeu.cpp` → Aurélien
 - `Joueur.cpp`, `Humain.cpp` → Philippe
 - `Machine.cpp`, `Case.cpp/.hpp`, `Cercle.cpp/.hpp`, `Enums.h` → Quentin

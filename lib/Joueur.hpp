@@ -17,7 +17,7 @@ private:
 
 public:
     Joueur(const std::string& nom, Couleur couleur);
-
+    virtual ~Joueur() = default; 
     void retirerCercle(Taille taille);
     bool aDesCercles() const;
     virtual std::pair<std::pair<int, int>, Cercle>  deciderAction(Plateau& p);

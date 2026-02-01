@@ -53,10 +53,12 @@ Voir [UML.md](UML.md) pour le diagramme complet des classes et leurs relations.
 
 ## Organisation de l'Équipe
 
+- L'organisation initiale est décrite ci-dessous. Toutefois, un retard global dans l'avancement du projet a modifié ces plans, les membres réalisant des fonctions de supports divers.
+
 | Membre | Responsabilités | 
 |--------|-----------------------------|
 | **Aurélien** | Classe Jeu |
-| **Philippe** | Joueurs : Classe joueur, classe humain |
+| **Philippe** | Joueurs : Classe joueur, classe humain, GTests |
 | **Quentin** | Enums, classe Case, classe Cercle, Machine "testerMenaceImminente" |
 | **Sophia** | classe Plateau, Machine "deciderAction" |
 

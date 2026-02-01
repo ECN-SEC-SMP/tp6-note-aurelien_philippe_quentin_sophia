@@ -13,13 +13,18 @@ classDiagram
     %% Classes
     class Jeu {
       -int version
-      -List~Joueur~ joueurs
+      -Vector~Joueur~ joueurs
       -Plateau plateau
+      -int joueurCourant
       +Jeu()
+      +ajouterJoueurHumain(nom: string, couleur: Couleur) +ajouterJoueurMachine(nom: string, couleur: Couleur)
+      +choisirVersion()
+      +entrerNombreJoueurs() int
+      +entrerNomJoueur()
       +initialiser()
       +lancerPartie()
-      +tourSuivant()
-      +demanderAction(Joueur j)
+      +lancerTourSuivant()
+      +testerVictoire(couleur : Couleur, int x, int y, cercle : Cercle) bool
       +verifierFinDePartie() bool
     }
 

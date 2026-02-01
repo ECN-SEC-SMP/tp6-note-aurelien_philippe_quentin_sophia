@@ -4,8 +4,20 @@
 Humain::Humain(const std::string& nom, Couleur couleur)
     : Joueur(nom, couleur) { }
 
+std::ostream& operator<<(std::ostream& os, Couleur c) {
+    switch(c) {
+        case Couleur::Bleu: os << "Bleu (B)"; break;
+        case Couleur::Rouge: os << "Rouge (R)"; break;
+        case Couleur::Jaune: os << "Jaune (J)"; break;
+        case Couleur::Vert: os << "Vert (V)"; break;
+
+        default: os << "Inconnu"; break;
+    }
+    return os;
+}
+
 std::pair<std::pair<int, int>, Cercle> Humain::deciderAction(Plateau& p) {
-    std::cout   << "Action de " << getNom() << " (Humain).\n "
+    std::cout   << "Action de " << getNom() << " (" << getCouleur() <<").\n "
                 << "Format : xy<taille> avec taille [1..3].\n"
                 << "Ex : 111 -> petit cercle du milieu.Entrez votre action : "
                 << std::endl;

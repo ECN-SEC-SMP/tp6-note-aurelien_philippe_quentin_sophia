@@ -1,3 +1,9 @@
+/** *@file Joueur.hpp
+  *  @brief Définition de la classe Joueur
+  *  @author Philippe
+  *  @date Janvier 2026
+  */
+
 #ifndef JOUEUR_HPP
 #define JOUEUR_HPP
 
@@ -7,19 +13,48 @@
 #include "Enums.h"
 #include "Plateau.hpp"
 
+
+/** *@brief Classe représentant un joueur dans le jeu 
+  */
 class Joueur {
 private:
+    // Attributs
+    /** *@brief Couleur du joueur 
+      */
     Couleur couleur;
+
+    /** *@brief Nom du joueur 
+      */
     std::string nom;
+
+    /** *@brief Nombre de cercles restants au joueur par taille 
+      */
     int petitCercle;
     int moyenCercle;
     int grandCercle;
 
 public:
+
+    /** *@brief Constructeur de la classe Joueur 
+      *  @param nom Le nom du joueur 
+      *  @param couleur La couleur du joueur 
+      */
     Joueur(const std::string& nom, Couleur couleur);
 
+    /** *@brief Retire un cercle du joueur en fonction de la taille 
+      *  @param taille La taille du cercle à retirer 
+      */
     void retirerCercle(Taille taille);
+
+    /** *@brief Vérifie si le joueur a des cercles restants 
+      *  @return true si le joueur a au moins un cercle restant, false sinon 
+      */
     bool aDesCercles() const;
+
+    /** *@brief Décide de l'action du joueur 
+      *  @param p Le plateau de jeu 
+      *  @return Une paire contenant les coordonnées (x, y) et le cercle à placer 
+      */
     virtual std::pair<std::pair<int, int>, Cercle>  deciderAction(Plateau& p);
 
 

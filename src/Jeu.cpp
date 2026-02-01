@@ -20,10 +20,9 @@ void Jeu::ajouterJoueurHumain(const std::string& nom, Couleur couleur){
     joueurs.push_back(std::make_unique<Humain>(nom, couleur));
 }
 
-// void Jeu::ajouterJoueurMachine(const std::string& nom, Couleur couleur){
-//     Machine machine = Machine(nom, couleur);
-//     joueurs.push_back(std::make_unique<Machine>(nom, couleur));
-// }
+void Jeu::ajouterJoueurMachine(const std::string& nom, Couleur couleur){
+    joueurs.push_back(std::make_unique<Machine>(nom, couleur));
+}
 
 void Jeu::choisirVersion(){
     int version;
@@ -82,25 +81,28 @@ void Jeu::entrerNomJoueurs(){
     }
     else {
         // Sinon, version 3
-        int nbJoueurs;
-        int nbOrdinateurs;
+        //int nbJoueurs;
+        //int nbOrdinateurs;
 
-        nbJoueurs = entrerNombreJoueurs();
+        //nbJoueurs = entrerNombreJoueurs();
 
-        nbOrdinateurs = 4 - nbJoueurs;
+        //nbOrdinateurs = 4 - nbJoueurs;
         
-        for(int i = 0; i < nbJoueurs; i++){
+        //for(int i = 0; i < nbJoueurs; i++){
             std::string nom;
 
-            std::cout << "Entrez le nom du joueur " << i+1 << " : ";
+            //std::cout << "Entrez le nom du joueur " << i+1 << " : ";
+            std::cout << "Entrez le nom du joueur : ";
             std::cin >> nom;
-            ajouterJoueurHumain(nom, static_cast<Couleur>(i));
-        }
+            //ajouterJoueurHumain(nom, static_cast<Couleur>(i));
+            ajouterJoueurHumain(nom, Couleur::Bleu);
+        //}
 
-        for(int j = 0; j < nbOrdinateurs; j ++){
+        ajouterJoueurMachine("Otriotor", Couleur::Rouge);
+        /* for(int j = 0; j < nbOrdinateurs; j ++){
             std::string nom = "Ordinateur_" + std::to_string(j+1);
-            // ajouterJoueurMachine(nom, static_cast<Couleur>(j + nbJoueurs));
-        }
+            ajouterJoueurMachine(nom, static_cast<Couleur>(j + nbJoueurs));
+        } */
     }
 }
 
@@ -163,7 +165,7 @@ void Jeu::lancerTourSuivant(){
         }
         else {
             // Joueur suivant
-            joueurCourant = (joueurCourant + 1) % 4;
+            joueurCourant = (joueurCourant + 1) % joueurs.size();
 
             if(!verifierFinDePartie()){
                 std::cout << "C'est au tour de " << joueurs[joueurCourant]->getNom() << std::endl;
@@ -175,10 +177,11 @@ void Jeu::lancerTourSuivant(){
         }
     }
     else {
-        // Redemande un choix au joueur courant
-        lancerTourSuivant();
+
+        std::cout << "Plus personne n'a de cercle, match nul !" << std::endl;
     }
 }
+
 
 bool Jeu::testerVictoire(Couleur couleur, std::pair<std::pair<int, int>, Cercle> lastAction){  
     // Test superposition (3 cercles de meme couleur sur une case)

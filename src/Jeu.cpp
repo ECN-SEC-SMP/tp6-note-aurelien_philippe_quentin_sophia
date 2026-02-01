@@ -116,9 +116,6 @@ void Jeu::initialiser(){
 
     // Entrée des joueurs
     entrerNomJoueurs();
-
-    // Démarrer la partie
-    lancerPartie();
 }
 
 void Jeu::lancerPartie(){
@@ -132,6 +129,8 @@ void Jeu::lancerPartie(){
     std::cout << "C'est " << joueurs[joueurCourant]->getNom() << " qui commence !" << std::endl;
 
     lancerTourSuivant();
+
+    plateau.afficher();
 
     std::cout << "<========> Fin de la partie <========>" << std::endl;
 }
@@ -178,7 +177,7 @@ void Jeu::lancerTourSuivant(){
     }
     else {
 
-        std::cout << "Plus personne n'a de cercle, match nul !" << std::endl;
+        lancerTourSuivant();
     }
 }
 
@@ -231,9 +230,9 @@ bool Jeu::testerVictoire(Couleur couleur, std::pair<std::pair<int, int>, Cercle>
         }
     }
 
-    // Diagonale 
+    // Diagonale NOK
+    int cptCercle = 0;
     for(int i = 0; i < 3; i++){
-        int cptCercle = 0;
         Case caseCourante = plateau.getCase(i, i);
         for(Cercle cercleCourant : caseCourante.getCercles()){
             if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == lastAction.second.getTaille()){
@@ -246,9 +245,10 @@ bool Jeu::testerVictoire(Couleur couleur, std::pair<std::pair<int, int>, Cercle>
         }
     }
     
+    // Diagonale 2
+    cptCercle = 0; // reset cptCercle pour la diagonale 2
     for(int i = 0; i < 3; i++){
         Case caseCourante = plateau.getCase(i, 2 - i);
-        int cptCercle = 0;
         for(Cercle cercleCourant : caseCourante.getCercles()){
             if(cercleCourant.getCouleur() == couleur && cercleCourant.getTaille() == lastAction.second.getTaille()){
                 cptCercle++;

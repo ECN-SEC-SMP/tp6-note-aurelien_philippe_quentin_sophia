@@ -3,23 +3,133 @@
 #include "../lib/Case.hpp"
 #include <iostream>
 #include <vector>
+#include <cstdlib> // Pour rand()
+#include <ctime>   // Pour time()
 
 using namespace std;
 
-Machine::Machine(const std::string& nom, Couleur couleur) 
-    : Joueur(nom, couleur) {}
+// [AJOUT] 1. FONCTION DE VISION
+// But : Permettre à la machine de vérifier si un plateau est gagnant pour elle
+// Elle ne pouvait pas utiliser Jeu::verifierFinDePartie car elle n'a pas accès à Jeu
+bool machineEstGagnante(const Plateau& p, Couleur c) {
+    // 1. Otrio Concentrique
+    for(int x=0; x<3; x++) {
+        for(int y=0; y<3; y++) {
+            const auto& contenu = p.getCase(x,y).getCercles();
+            int compteur = 0;
+            for(const auto& pion : contenu) {
+                if(pion.getCouleur() == c) compteur++;
+            }
+            if(compteur == 3) return true;
+        } 
+    }
 
+    // 2. Alignements
+    int lignes[8][3][2] = {
+        {{0,0}, {1,0}, {2,0}}, {{0,1}, {1,1}, {2,1}}, {{0,2}, {1,2}, {2,2}}, // Lignes
+        {{0,0}, {0,1}, {0,2}}, {{1,0}, {1,1}, {1,2}}, {{2,0}, {2,1}, {2,2}}, // Cols
+        {{0,0}, {1,1}, {2,2}}, {{2,0}, {1,1}, {0,2}}  // Diags
+    };
+
+    for(int i=0; i<8; i++) {
+        const Case& c1 = p.getCase(lignes[i][0][0], lignes[i][0][1]);
+        const Case& c2 = p.getCase(lignes[i][1][0], lignes[i][1][1]);
+        const Case& c3 = p.getCase(lignes[i][2][0], lignes[i][2][1]);
+
+        // Même Taille
+        for(int t=0; t<3; t++) {
+            Taille tail = static_cast<Taille>(t);
+            bool b1=false, b2=false, b3=false;
+            for(auto& k : c1.getCercles()) if(k.getCouleur()==c && k.getTaille()==tail) b1=true;
+            for(auto& k : c2.getCercles()) if(k.getCouleur()==c && k.getTaille()==tail) b2=true;
+            for(auto& k : c3.getCercles()) if(k.getCouleur()==c && k.getTaille()==tail) b3=true;
+            if(b1 && b2 && b3) return true;
+        }
+
+        // Croissant
+        bool p1=false, m2=false, g3=false;
+        for(auto& k : c1.getCercles()) if(k.getCouleur()==c && k.getTaille()==Taille::Petit) p1=true;
+        for(auto& k : c2.getCercles()) if(k.getCouleur()==c && k.getTaille()==Taille::Moyen) m2=true;
+        for(auto& k : c3.getCercles()) if(k.getCouleur()==c && k.getTaille()==Taille::Grand) g3=true;
+        if(p1 && m2 && g3) return true;
+
+        // Décroissant
+        bool g1=false, m2b=false, p3=false;
+        for(auto& k : c1.getCercles()) if(k.getCouleur()==c && k.getTaille()==Taille::Grand) g1=true;
+        for(auto& k : c2.getCercles()) if(k.getCouleur()==c && k.getTaille()==Taille::Moyen) m2b=true;
+        for(auto& k : c3.getCercles()) if(k.getCouleur()==c && k.getTaille()==Taille::Petit) p3=true;
+        if(g1 && m2b && p3) return true;
+    }
+    return false;
+}
+
+Machine::Machine(const std::string& nom, Couleur couleur) 
+    : Joueur(nom, couleur) {
+    srand(time(NULL)); // Init random pour éviter de toujours faire la même partie
+}
+
+// [MODIFICATION MAJEURE] 2. DECIDER ACTION
+// But : Intégrer l'Attaque avant la Défense
 std::pair<std::pair<int, int>, Cercle> Machine::deciderAction(Plateau& plateau) {
+    cout << "Machine " << getNom() << " reflechit..." << endl;
+
+    // PRIORITÉ 1 : ATTAQUE (Simulation) 
+    // On teste tous les coups. Si un coup gagne, on le joue
+    for (int x = 0; x < 3; x++) {
+        for (int y = 0; y < 3; y++) {
+            for (int t = 0; t < 3; t++) {
+                Taille taille = static_cast<Taille>(t);
+                Cercle c(getCouleur(), taille);
+
+                // Si le coup est possible physiquement
+                if (plateau.getCase(x, y).testerCercles(c)) {
+                    // Simulation : On copie le plateau
+                    Plateau simu = plateau; 
+                    simu.placerCercle(x, y, c);
+                    
+                    // Si ce coup me fait gagner
+                    if (machineEstGagnante(simu, getCouleur())) {
+                        cout << "-> Victoire calculee !" << endl;
+                        return {{x, y}, c};
+                    }
+                }
+            }
+        }
+    }
+
+    // PRIORITÉ 2 : DÉFENSE 
     std::pair<std::pair<int, int>, Cercle> action = testerMenaceImminente(plateau);
 
-    // Pas de menace iminente observée
-    if (action.first.first == -1) {
+    // Si une menace est détectée (coordonnées != -1)
+    if (action.first.first != -1) {
+        cout << "-> Menace detectee, blocage !" << endl;
+        // IMPORTANT : On s'assure de jouer NOTRE couleur (pas Rouge par défaut)
+        action.second = Cercle(getCouleur(), action.second.getTaille());
+        return action;
+    }
+
+    // PRIORITÉ 3 : STRATEGIE (Centre)
+    // [AJOUT] Essayer de prendre le centre (position forte) si rien d'autre à faire
+    Cercle cGrand(getCouleur(), Taille::Grand);
+    if (plateau.getCase(1, 1).testerCercles(cGrand)) {
+         return {{1, 1}, cGrand};
+    }
+
+    // PRIORITÉ 4 : HASARD 
+    // Sécurité anti-boucle infinie ajoutée (i < 100)
+    for(int i=0; i<100; i++) {
         action.first.first = rand() % 3;
         action.first.second = rand() % 3;
-        action.second = Cercle(Couleur::Rouge, static_cast<Taille>(rand() % 3));
+        action.second = Cercle(getCouleur(), static_cast<Taille>(rand() % 3));
+        
+        // On vérifie que le coup hasard est valide avant de le renvoyer
+        if (plateau.getCase(action.first.first, action.first.second).testerCercles(action.second)) {
+            return action;
+        }
     }
-    return action;
+    return {{-1, -1}, Cercle()};
 }
+
 
 std::pair<Cercle, int> tester_taille(Case a, Case b, int deltaDeTaille) {
     int deltaObserve = -1;
@@ -46,8 +156,7 @@ Cercle tester_couleur_identique(Case a, Case b) {
     return Cercle();
 }
 
-/* 
-// V1 Abandonnée suite au refacroring 
+/* // V1 Abandonnée suite au refacroring 
 
 std::pair<std::pair<int, int>, Cercle> Machine::testerMenaceImminente(const Plateau &plateau,
                                const std::vector<Joueur> &joueurs) {
@@ -120,7 +229,7 @@ std::pair<std::pair<int, int>, Cercle> Machine::testerMenaceImminente(const Plat
 
 std::pair<std::pair<int, int>, Cercle> Machine::testerMenaceImminente(const Plateau &plateau) {
     
-    // CAS 1 : Concentrique (inchangé)
+    // CAS 1 : Concentrique
     for (int x = 0; x < 3; x++) {
         for (int y = 0; y < 3; y++) {
             Case courante = plateau.getCase(x, y);
@@ -130,10 +239,10 @@ std::pair<std::pair<int, int>, Cercle> Machine::testerMenaceImminente(const Plat
                 Cercle c1 = cercles[0];
                 Cercle c2 = cercles[1];
                 
-                if (c1.getCouleur() == c2.getCouleur() && c1.getCouleur() != Couleur::Rouge) {
+                // [PETITE CORRECTION] : On vérifie que c'est pas NOUS (getCouleur()) au lieu de juste Rouge
+                if (c1.getCouleur() == c2.getCouleur() && c1.getCouleur() != getCouleur()) {
                     bool aPetit = (c1.getTaille() == Taille::Petit || c2.getTaille() == Taille::Petit);
                     bool aMoyen = (c1.getTaille() == Taille::Moyen || c2.getTaille() == Taille::Moyen);
-                    // bool aGrand n'est pas nécessaire par déduction
                     
                     Taille tailleManquante;
                     if (!aPetit) tailleManquante = Taille::Petit;
@@ -168,20 +277,16 @@ std::pair<std::pair<int, int>, Cercle> Machine::testerMenaceImminente(const Plat
                 
                 std::pair<std::pair<int, int>, Cercle> menace;
 
-                // COMBINAISON 1 : On regarde c1 et c2 -> menace sur c3
                 menace = testerAlignementTailleCroissante(c1, c2, c3, x, y, x2, y2, x3, y3);
                 if (menace.first.first != -1) return menace;
                 menace = testerAlignementMemeTaille(c1, c2, c3, x, y, x2, y2, x3, y3);
                 if (menace.first.first != -1) return menace;
 
-                // COMBINAISON 2 : On regarde c1 et c3 -> menace sur c2 (LE TROU AU MILIEU)
-                // Note: on passe (x2, y2) en dernière position car c'est la cible
                 menace = testerAlignementTailleCroissante(c1, c3, c2, x, y, x3, y3, x2, y2);
                 if (menace.first.first != -1) return menace;
                 menace = testerAlignementMemeTaille(c1, c3, c2, x, y, x3, y3, x2, y2);
                 if (menace.first.first != -1) return menace;
 
-                // COMBINAISON 3 : On regarde c2 et c3 -> menace sur c1
                 menace = testerAlignementTailleCroissante(c2, c3, c1, x2, y2, x3, y3, x, y);
                 if (menace.first.first != -1) return menace;
                 menace = testerAlignementMemeTaille(c2, c3, c1, x2, y2, x3, y3, x, y);
@@ -200,27 +305,20 @@ std::pair<std::pair<int, int>, Cercle> Machine::testerAlignementTailleCroissante
     for (const Cercle& cercle1 : c1.getCercles()) {
         for (const Cercle& cercle2 : c2.getCercles()) {
             if (cercle1.getCouleur() == cercle2.getCouleur() && 
-                cercle1.getCouleur() != Couleur::Rouge) {
+                cercle1.getCouleur() != getCouleur()) { // [CORRECTION] Vs Machine
                 
                 int t1 = static_cast<int>(cercle1.getTaille());
                 int t2 = static_cast<int>(cercle2.getTaille());
                 
-                // Si tailles différentes, on cherche la 3ème pour faire la suite (0,1,2)
                 if (t1 != t2) {
-                    // La taille manquante est toujours 3 moins la somme des deux autres
                     int t3 = 3 - (t1 + t2);
-                    
                     if (t3 >= 0 && t3 <= 2) {
                         Taille tailleManquante = static_cast<Taille>(t3);
-                        
-                        // Vérifier si la case cible (c3) est libre pour cette taille
                         bool occupe = false;
                         for (const Cercle& c : c3.getCercles()) {
                             if (c.getTaille() == tailleManquante) { occupe = true; break; }
                         }
-                        
                         if (!occupe) {
-                            // On renvoie x3, y3 car c'est toujours la coordonnée cible passée en paramètre
                             return {{x3, y3}, Cercle(Couleur::Rouge, tailleManquante)};
                         }
                     }
@@ -237,12 +335,10 @@ std::pair<std::pair<int, int>, Cercle> Machine::testerAlignementMemeTaille(
     
     for (const Cercle& cercle1 : c1.getCercles()) {
         for (const Cercle& cercle2 : c2.getCercles()) {
-            // Même couleur, même taille, pas nous
             if (cercle1.getCouleur() == cercle2.getCouleur() &&
                 cercle1.getTaille() == cercle2.getTaille() &&
-                cercle1.getCouleur() != Couleur::Rouge) {
+                cercle1.getCouleur() != getCouleur()) { // [CORRECTION] Vs Machine
                 
-                // Vérifier si case3 (la cible) a déjà ce cercle
                 bool presente = false;
                 for (const Cercle& c : c3.getCercles()) {
                     if (c.getTaille() == cercle1.getTaille()) {
@@ -250,9 +346,7 @@ std::pair<std::pair<int, int>, Cercle> Machine::testerAlignementMemeTaille(
                         break;
                     }
                 }
-                
                 if (!presente) {
-                    // On renvoie les coordonnées de la cible (x3, y3)
                     return {{x3, y3}, Cercle(Couleur::Rouge, cercle1.getTaille())};
                 }
             }

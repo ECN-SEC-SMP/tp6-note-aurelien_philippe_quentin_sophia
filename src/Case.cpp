@@ -16,7 +16,7 @@ Case::Case() = default;
  * @param[in] cercle Le cercle à ajouter.
  * @return `true` si l'ajout est permis, `false` sinon.
  */
-bool Case::testerCercles(const Cercle& cercle){
+bool Case::testerCercles(const Cercle& cercle) const{
     for (Cercle currentCercle : getCercles()) {
         if (cercle.getTaille() == currentCercle.getTaille()) return false;
     }

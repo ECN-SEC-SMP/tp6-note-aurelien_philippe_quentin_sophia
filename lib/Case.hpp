@@ -31,7 +31,7 @@ public:
    * @return `true` si le cercle n'est pas présent (peut être ajouté),
    *         `false` s'il est déjà présent.
    */
-  bool testerCercles(const Cercle &cercle);
+  bool testerCercles(const Cercle &cercle) const;
 
   /**
    * @brief Ajoute un `Cercle` à la case si possible.
@@ -41,5 +41,5 @@ public:
    */
   bool ajouterCercle(const Cercle &cercle);
 
-  std::vector<Cercle> getCercles() const { return this->cercles; };
+  const std::vector<Cercle>& getCercles() const { return cercles; }
 };

@@ -16,7 +16,7 @@
 /** *@brief Classe représentant un joueur dans le jeu 
   */
 class Joueur {
-private:
+protected:
     // Attributs
     Couleur couleur;
     std::string nom;

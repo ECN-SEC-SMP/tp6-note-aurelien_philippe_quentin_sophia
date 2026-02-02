@@ -1,0 +1,14 @@
+<map id="Jeu::initialiser" name="Jeu::initialiser">
+<area shape="rect" id="Node000001" title="Initialise le jeu." alt="" coords="5,55,116,80"/>
+<area shape="rect" id="Node000002" href="$classJeu.html#a544c01217f10e261eee9f0aa662f274b" title="Permet de choisir la version du jeu." alt="" coords="177,29,319,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,57,163,51,164,56,117,63"/>
+<area shape="rect" id="Node000003" href="$classJeu.html#aed3c6dc29d1f422529ed75a552654fd7" title="Permet d&#39;entrer les noms des joueurs." alt="" coords="164,79,332,104"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="117,72,151,76,150,81,116,77"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="217,31,211,21,214,11,227,5,248,3,274,6,284,15,281,19,272,11,248,8,228,10,218,15,216,20,221,28"/>
+<area shape="rect" id="Node000004" href="$classJeu.html#a0d244da3e62f0b0f53e9e7c843afab43" title="Ajoute un joueur humain au jeu." alt="" coords="382,29,570,55"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="307,76,403,55,404,60,308,81"/>
+<area shape="rect" id="Node000005" href="$classJeu.html#a1ef8244e16131d2d90cb3e87382eebfb" title="Ajoute un joueur machine au jeu." alt="" coords="380,79,572,104"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="333,89,367,89,367,94,333,94"/>
+<area shape="rect" id="Node000006" href="$classJeu.html#ae8aa22d5c64d2865f363da67882a4399" title=" " alt="" coords="417,128,535,153"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="308,101,404,122,403,128,307,107"/>
+</map>

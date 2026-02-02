@@ -1,0 +1,10 @@
+<map id="Jeu::verifierFinDePartie" name="Jeu::verifierFinDePartie">
+<area shape="rect" id="Node000001" title="Vérifie si la partie est terminée." alt="" coords="497,29,668,55"/>
+<area shape="rect" id="Node000002" href="$classJeu.html#a9e73c55c75ee6893857ed764f940ef5c" title="Lance le tour du joueur courant." alt="" coords="283,29,449,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="483,45,450,45,450,39,483,39"/>
+<area shape="poly" id="edge4_Node000002_Node000002" title=" " alt="" coords="401,19,391,11,366,8,345,10,334,15,332,20,338,28,334,31,327,21,331,11,344,5,366,3,393,6,404,15"/>
+<area shape="rect" id="Node000003" href="$classJeu.html#a98de76a91961f5c12bb1df678484dafa" title="Lance la partie." alt="" coords="108,29,235,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="269,45,235,45,235,39,269,39"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,29,60,55"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="95,45,60,45,60,39,95,39"/>
+</map>

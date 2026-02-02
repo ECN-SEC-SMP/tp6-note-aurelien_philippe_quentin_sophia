@@ -1,0 +1,7 @@
+<map id="Jeu::testerVictoire" name="Jeu::testerVictoire">
+<area shape="rect" id="Node000001" title="Teste si le joueur de la couleur donnée a gagné après la dernière action." alt="" coords="5,31,144,56"/>
+<area shape="rect" id="Node000002" href="$classPlateau.html#a2ae8c8780c3c3895ba9c2baa75190eab" title="Retourne une référence constante sur la case aux coordonnées (x, y)" alt="" coords="192,5,324,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,31,178,26,179,32,145,36"/>
+<area shape="rect" id="Node000003" href="$classCase.html#ac4bf5393b135092b8c9ccd2bcc48b4b4" title=" " alt="" coords="193,55,323,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="145,50,179,54,179,60,144,55"/>
+</map>

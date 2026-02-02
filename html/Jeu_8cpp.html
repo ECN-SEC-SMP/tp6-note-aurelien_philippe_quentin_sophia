@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Otrio - Projet CPP - Groupe Aurelien, Philippe, Quentin, Sophia: Référence du fichier src/Jeu.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Otrio - Projet CPP - Groupe Aurelien, Philippe, Quentin, Sophia<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Jeu de stratégie Otrio avec IA</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Référence du fichier Jeu.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="Jeu_8hpp_source.html">Jeu.hpp</a>&quot;</code><br />
+<code>#include &lt;string&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de Jeu.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="Jeu_8cpp__incl.png" border="0" usemap="#asrc_2Jeu_8cpp" alt=""/></div>
+<map name="asrc_2Jeu_8cpp" id="asrc_2Jeu_8cpp">
+<area shape="rect" title=" " alt="" coords="429,5,521,31"/>
+<area shape="rect" href="Jeu_8hpp.html" title="Définition de la classe Jeu." alt="" coords="326,79,397,104"/>
+<area shape="poly" title=" " alt="" coords="458,33,393,74,390,69,455,28"/>
+<area shape="rect" title=" " alt="" coords="507,299,565,324"/>
+<area shape="poly" title=" " alt="" coords="486,29,520,80,539,114,552,151,557,188,556,225,546,286,540,285,551,224,552,188,547,153,534,117,516,83,482,32"/>
+<area shape="rect" title=" " alt="" coords="75,445,138,471"/>
+<area shape="poly" title=" " alt="" coords="326,102,238,121,133,151,84,170,44,191,17,213,10,225,8,237,8,312,15,350,34,383,58,412,82,435,78,438,54,416,29,386,10,351,3,313,3,236,5,223,13,210,41,186,82,165,131,146,237,116,325,97"/>
+<area shape="rect" title=" " alt="" coords="284,152,361,177"/>
+<area shape="poly" title=" " alt="" coords="357,106,338,141,333,139,353,103"/>
+<area shape="rect" href="Enums_8h.html" title=" " alt="" coords="593,519,671,544"/>
+<area shape="poly" title=" " alt="" coords="397,93,496,107,557,121,618,141,674,169,721,206,740,228,753,253,762,280,765,310,765,386,763,407,755,428,731,463,700,492,668,514,665,509,696,488,727,460,751,425,758,406,760,386,760,310,757,281,749,255,735,231,717,210,671,174,616,146,555,126,495,112,397,98"/>
+<area shape="rect" href="Joueur_8hpp.html" title="Définition de la classe Joueur." alt="" coords="245,225,336,251"/>
+<area shape="poly" title=" " alt="" coords="370,104,380,138,381,159,376,179,356,203,331,221,328,217,352,199,371,176,376,158,375,139,365,105"/>
+<area shape="rect" href="Plateau_8hpp.html" title="Définition de la classe Plateau." alt="" coords="195,299,293,324"/>
+<area shape="poly" title=" " alt="" coords="326,100,223,119,175,135,157,144,146,154,138,171,137,189,142,207,153,226,184,260,217,288,214,292,180,264,149,229,138,209,132,190,132,170,142,150,154,139,173,130,222,114,325,95"/>
+<area shape="rect" href="Humain_8hpp.html" title="Définition de la classe Humain." alt="" coords="436,152,537,177"/>
+<area shape="poly" title=" " alt="" coords="383,102,456,143,453,147,380,106"/>
+<area shape="rect" href="Machine_8hpp.html" title="Définition de la classe Machine." alt="" coords="155,152,261,177"/>
+<area shape="poly" title=" " alt="" coords="338,106,246,149,244,144,336,102"/>
+<area shape="poly" title=" " alt="" coords="300,250,329,290,374,348,431,411,498,468,540,493,583,512,581,517,537,498,494,473,428,415,370,351,324,293,296,253"/>
+<area shape="poly" title=" " alt="" coords="331,248,494,295,492,300,329,253"/>
+<area shape="rect" title=" " alt="" coords="271,372,351,397"/>
+<area shape="poly" title=" " alt="" coords="297,250,308,298,313,358,308,358,303,299,292,252"/>
+<area shape="rect" href="Cercle_8hpp.html" title="Définition de la classe Cercle utilisée dans le projet." alt="" coords="508,445,599,471"/>
+<area shape="poly" title=" " alt="" coords="324,248,369,268,415,297,453,330,488,367,540,432,535,435,484,370,450,334,412,301,366,273,322,253"/>
+<area shape="poly" title=" " alt="" coords="285,252,261,289,257,286,281,250"/>
+<area shape="poly" title=" " alt="" coords="568,469,611,508,607,511,564,473"/>
+<area shape="poly" title=" " alt="" coords="257,323,292,360,289,364,253,326"/>
+<area shape="rect" href="Case_8hpp.html" title="Déclaration de la classe Case qui contient des cercles." alt="" coords="151,372,233,397"/>
+<area shape="poly" title=" " alt="" coords="238,326,211,362,206,359,233,323"/>
+<area shape="poly" title=" " alt="" coords="180,399,133,439,129,434,177,395"/>
+<area shape="poly" title=" " alt="" coords="234,391,495,443,494,448,233,397"/>
+<area shape="poly" title=" " alt="" coords="539,173,594,189,651,215,676,233,696,255,710,280,715,310,715,386,709,423,694,457,674,487,655,510,651,507,670,483,689,454,704,421,709,386,709,310,705,282,692,258,673,237,648,220,592,194,537,178"/>
+<area shape="poly" title=" " alt="" coords="456,180,336,223,335,218,454,175"/>
+<area shape="poly" title=" " alt="" coords="500,176,516,197,530,224,538,256,540,285,534,285,532,256,526,226,512,200,495,179"/>
+<area shape="poly" title=" " alt="" coords="504,176,528,197,552,224,571,259,580,298,583,335,579,372,565,433,559,432,574,371,577,335,575,299,566,261,547,227,524,200,501,180"/>
+<area shape="poly" title=" " alt="" coords="493,178,498,213,495,234,486,252,457,272,412,286,308,306,307,300,411,281,455,267,482,249,490,232,493,213,488,178"/>
+<area shape="rect" title=" " alt="" coords="411,225,471,251"/>
+<area shape="poly" title=" " alt="" coords="481,179,458,215,454,212,477,176"/>
+<area shape="poly" title=" " alt="" coords="205,179,184,226,144,341,116,433,111,431,139,340,179,224,200,177"/>
+<area shape="poly" title=" " alt="" coords="223,175,268,214,265,218,220,179"/>
+<area shape="poly" title=" " alt="" coords="237,175,349,223,401,248,497,291,495,296,399,253,347,228,235,180"/>
+<area shape="poly" title=" " alt="" coords="214,177,240,285,235,286,208,178"/>
+<area shape="poly" title=" " alt="" coords="207,178,191,240,186,282,185,324,190,358,185,359,180,324,180,281,186,239,202,177"/>
+<area shape="poly" title=" " alt="" coords="246,175,399,221,397,226,245,180"/>
+</map>
+</div>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

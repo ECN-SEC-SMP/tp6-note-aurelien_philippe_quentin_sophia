@@ -1,0 +1,8 @@
+<map id="Jeu::choisirVersion" name="Jeu::choisirVersion">
+<area shape="rect" id="Node000001" title="Permet de choisir la version du jeu." alt="" coords="267,29,408,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="368,19,359,11,337,8,319,10,310,15,308,20,313,28,308,31,302,21,306,11,318,5,337,3,361,6,371,15"/>
+<area shape="rect" id="Node000002" href="$classJeu.html#af7473bba63b6e8ceadb8cb3a695a7bb4" title="Initialise le jeu." alt="" coords="108,29,219,55"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="253,45,219,45,219,39,253,39"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,29,60,55"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="94,45,60,45,60,39,94,39"/>
+</map>

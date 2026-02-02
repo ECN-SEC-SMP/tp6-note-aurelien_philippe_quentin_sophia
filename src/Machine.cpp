@@ -11,7 +11,7 @@ using namespace std;
 // [AJOUT] FONCTION DE VISION (Simulation)
 // Permet à la machine de vérifier si elle gagne sur une copie du plateau
 bool machineEstGagnante(const Plateau& p, Couleur c) {
-    // 1. Otrio Concentrique
+    // 1. Otrio Concentrique    
     for(int x=0; x<3; x++) {
         for(int y=0; y<3; y++) {
             const auto& contenu = p.getCase(x,y).getCercles();

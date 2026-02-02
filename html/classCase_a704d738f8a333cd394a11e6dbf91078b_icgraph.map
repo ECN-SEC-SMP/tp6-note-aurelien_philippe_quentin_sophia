@@ -1,0 +1,14 @@
+<map id="Case::ajouterCercle" name="Case::ajouterCercle">
+<area shape="rect" id="Node000001" title="Ajoute un Cercle à la case si possible." alt="" coords="713,43,863,68"/>
+<area shape="rect" id="Node000002" href="$classPlateau.html#a607dac396bb07bae6e4ee5c1029b0522" title="Place un cercle sur le plateau aux coordonnées (x, y) si possible." alt="" coords="505,43,665,68"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="700,58,665,58,665,53,700,53"/>
+<area shape="rect" id="Node000003" href="$classMachine.html#a5bc8ed73be050e1bd3e9990f5ea4f390" title="Décide de l&#39;action de la machine." alt="" coords="283,5,457,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="497,43,443,33,444,28,498,38"/>
+<area shape="rect" id="Node000004" href="$classJeu.html#a9e73c55c75ee6893857ed764f940ef5c" title="Lance le tour du joueur courant." alt="" coords="287,79,453,104"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="496,73,447,81,446,76,495,68"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="405,69,395,60,370,57,349,59,338,64,336,70,342,77,337,80,331,70,334,60,348,54,370,52,397,56,408,64"/>
+<area shape="rect" id="Node000005" href="$classJeu.html#a98de76a91961f5c12bb1df678484dafa" title="Lance la partie." alt="" coords="108,79,235,104"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="273,94,235,94,235,89,273,89"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,79,60,104"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="95,94,60,94,60,89,95,89"/>
+</map>

@@ -1,0 +1,17 @@
+<map id="Case::testerCercles" name="Case::testerCercles">
+<area shape="rect" id="Node000001" title="Teste si un Cercle est déjà présent dans la case." alt="" coords="911,55,1059,80"/>
+<area shape="rect" id="Node000002" href="$classCase.html#a704d738f8a333cd394a11e6dbf91078b" title="Ajoute un Cercle à la case si possible." alt="" coords="713,29,863,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="897,59,863,54,864,49,898,53"/>
+<area shape="rect" id="Node000004" href="$classMachine.html#a5bc8ed73be050e1bd3e9990f5ea4f390" title="Décide de l&#39;action de la machine." alt="" coords="283,79,457,104"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="897,73,458,91,457,85,897,68"/>
+<area shape="rect" id="Node000003" href="$classPlateau.html#a607dac396bb07bae6e4ee5c1029b0522" title="Place un cercle sur le plateau aux coordonnées (x, y) si possible." alt="" coords="505,29,665,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="700,45,665,45,665,39,700,39"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="517,60,427,81,426,76,516,55"/>
+<area shape="rect" id="Node000005" href="$classJeu.html#a9e73c55c75ee6893857ed764f940ef5c" title="Lance le tour du joueur courant." alt="" coords="287,29,453,55"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="491,45,453,45,453,39,491,39"/>
+<area shape="poly" id="edge7_Node000005_Node000005" title=" " alt="" coords="405,19,395,11,370,8,349,10,338,15,336,20,342,28,337,31,331,21,334,11,348,5,370,3,397,6,408,15"/>
+<area shape="rect" id="Node000006" href="$classJeu.html#a98de76a91961f5c12bb1df678484dafa" title="Lance la partie." alt="" coords="108,29,235,55"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="273,45,235,45,235,39,273,39"/>
+<area shape="rect" id="Node000007" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,29,60,55"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="95,45,60,45,60,39,95,39"/>
+</map>

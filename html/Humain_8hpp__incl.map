@@ -1,0 +1,28 @@
+<map id="lib/Humain.hpp" name="lib/Humain.hpp">
+<area shape="rect" id="Node000001" title="Définition de la classe Humain." alt="" coords="103,5,225,31"/>
+<area shape="rect" id="Node000002" href="$Joueur_8hpp.html" title="Définition de la classe Joueur." alt="" coords="160,79,251,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,30,194,65,189,68,169,32"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="93,152,152,177"/>
+<area shape="poly" id="edge15_Node000001_Node000003" title=" " alt="" coords="163,32,132,139,127,138,158,30"/>
+<area shape="rect" id="Node000005" href="$Cercle_8hpp.html" title="Définition de la classe Cercle utilisée dans le projet." alt="" coords="227,299,317,324"/>
+<area shape="poly" id="edge13_Node000001_Node000005" title=" " alt="" coords="152,33,124,59,96,95,85,115,78,135,77,156,84,176,113,216,150,248,191,273,229,291,226,296,188,278,147,252,109,219,79,179,72,157,73,134,80,113,91,92,120,55,148,29"/>
+<area shape="rect" id="Node000006" href="$Enums_8h.html" title=" " alt="" coords="150,372,229,397"/>
+<area shape="poly" id="edge14_Node000001_Node000006" title=" " alt="" coords="135,33,96,52,54,81,36,98,21,118,12,139,8,164,8,239,11,263,21,284,35,302,53,319,95,346,138,365,136,370,92,351,49,323,31,306,16,286,6,264,3,240,3,163,6,138,17,115,32,95,51,77,93,48,133,28"/>
+<area shape="rect" id="Node000007" href="$Plateau_8hpp.html" title="Définition de la classe Plateau." alt="" coords="328,152,427,177"/>
+<area shape="poly" id="edge12_Node000001_Node000007" title=" " alt="" coords="186,29,264,76,354,141,350,146,261,81,183,33"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="326,79,386,104"/>
+<area shape="poly" id="edge16_Node000001_Node000010" title=" " alt="" coords="196,28,314,72,312,77,194,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="194,106,148,145,145,141,190,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="277,225,357,251"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="218,102,261,150,305,212,300,215,257,154,214,106"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="211,104,267,284,262,286,206,105"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="207,104,193,358,188,358,202,104"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="234,102,338,144,336,149,232,106"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="260,326,215,365,212,361,257,322"/>
+<area shape="poly" id="edge11_Node000007_Node000004" title=" " alt="" coords="369,179,338,217,334,213,365,176"/>
+<area shape="rect" id="Node000008" href="$Case_8hpp.html" title="Déclaration de la classe Case qui contient des cercles." alt="" coords="381,225,464,251"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="387,176,410,212,406,215,383,179"/>
+<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="400,253,310,295,308,290,397,248"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="391,299,454,324"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="425,251,425,285,420,285,420,251"/>
+</map>

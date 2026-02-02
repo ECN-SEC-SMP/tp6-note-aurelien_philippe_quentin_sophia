@@ -1,0 +1,7 @@
+<map id="Case::testerCercles" name="Case::testerCercles">
+<area shape="rect" id="Node000001" title="Teste si un Cercle est déjà présent dans la case." alt="" coords="5,31,153,56"/>
+<area shape="rect" id="Node000002" href="$classCase.html#ac4bf5393b135092b8c9ccd2bcc48b4b4" title=" " alt="" coords="201,5,332,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,31,187,26,188,31,154,36"/>
+<area shape="rect" id="Node000003" href="$classCercle.html#ab93c81ea58f5bb9e10c48a4e7244b546" title="Obtient la taille du cercle." alt="" coords="203,55,330,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="154,50,190,55,189,60,153,55"/>
+</map>

@@ -56,13 +56,13 @@ Voir [UML.md](UML.md) pour le diagramme complet des classes et leurs relations
 | Membre | Responsabilités | 
 |--------|-----------------------------|
 | **Aurélien** | Classe Jeu |
-| **Philippe** | Joueurs : Classe joueur, classe humain, GTests |
+| **Philippe** | Joueurs : Classe joueur, classe humain, GTests , Doxygen|
 | **Quentin** | Enums, classe Case, classe Cercle, Machine "testerMenaceImminente" |
 | **Sophia** | classe Plateau, Machine "deciderAction", tests unitaires|
 
 ### Répartition des Fichiers
-- `Plateau.cpp/.hpp`, `Machine.cpp`, `main.cpp`, `/tests` → Sophia
+- `Plateau.cpp/.hpp`, `Machine.cpp`, `main.cpp` → Sophia
 - `Jeu.cpp` → Aurélien
-- `Joueur.cpp`, `Humain.cpp` → Philippe
+- `Joueur.cpp`, `Humain.cpp`,`/tests` → Philippe
 - `Machine.cpp`, `Case.cpp/.hpp`, `Cercle.cpp/.hpp`, `Enums.h` → Quentin
 

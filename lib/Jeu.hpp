@@ -1,3 +1,9 @@
+/** *
+ * @file Jeu.hpp
+ * @brief Définition de la classe Jeu
+ * @author Aurelien, Philippe, Quentin, Sophia
+ * @date Janvier 2026
+ */
 #pragma once
 
 #include <vector>
@@ -35,6 +41,8 @@ class Jeu {
 
         // Accesseurs
         int getVersion();
+
+        Plateau& getPlateau() { return plateau; }
 
         // Mutateurs
 

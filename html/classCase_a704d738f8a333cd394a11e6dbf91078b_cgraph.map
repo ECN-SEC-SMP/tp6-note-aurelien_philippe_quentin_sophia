@@ -1,0 +1,9 @@
+<map id="Case::ajouterCercle" name="Case::ajouterCercle">
+<area shape="rect" id="Node000001" title="Ajoute un Cercle à la case si possible." alt="" coords="5,31,155,56"/>
+<area shape="rect" id="Node000002" href="$classCase.html#ae6fd5301dc7616d5b66dd6ed97aa9784" title="Teste si un Cercle est déjà présent dans la case." alt="" coords="203,31,351,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,41,189,41,189,46,155,46"/>
+<area shape="rect" id="Node000003" href="$classCase.html#ac4bf5393b135092b8c9ccd2bcc48b4b4" title=" " alt="" coords="399,5,529,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="351,31,385,26,385,31,351,36"/>
+<area shape="rect" id="Node000004" href="$classCercle.html#ab93c81ea58f5bb9e10c48a4e7244b546" title="Obtient la taille du cercle." alt="" coords="401,55,527,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="351,50,387,55,387,60,351,55"/>
+</map>

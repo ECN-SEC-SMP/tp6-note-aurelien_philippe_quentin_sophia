@@ -1,0 +1,19 @@
+<map id="src/Plateau.cpp" name="src/Plateau.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="147,5,269,31"/>
+<area shape="rect" id="Node000002" href="$Plateau_8hpp.html" title="Définition de la classe Plateau." alt="" coords="47,79,145,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,33,128,73,125,69,189,28"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="161,225,223,251"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="212,31,215,94,211,178,203,213,198,212,205,177,209,94,206,31"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="116,152,196,177"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="206,32,167,140,162,138,201,30"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="271,79,356,104"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="226,28,286,69,284,73,223,33"/>
+<area shape="rect" id="Node000003" href="$Case_8hpp.html" title="Déclaration de la classe Case qui contient des cercles." alt="" coords="9,152,92,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="91,106,68,142,63,139,86,103"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="108,103,140,140,135,143,104,106"/>
+<area shape="rect" id="Node000004" href="$Cercle_8hpp.html" title="Définition de la classe Cercle utilisée dans le projet." alt="" coords="5,225,96,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="53,178,53,212,48,212,48,178"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="75,175,158,217,156,221,72,180"/>
+<area shape="rect" id="Node000005" href="$Enums_8h.html" title=" " alt="" coords="11,299,90,324"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="53,251,53,285,48,285,48,251"/>
+</map>

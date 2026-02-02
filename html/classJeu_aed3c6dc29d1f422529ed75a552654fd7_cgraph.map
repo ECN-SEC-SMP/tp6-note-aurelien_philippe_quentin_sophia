@@ -1,0 +1,9 @@
+<map id="Jeu::entrerNomJoueurs" name="Jeu::entrerNomJoueurs">
+<area shape="rect" id="Node000001" title="Permet d&#39;entrer les noms des joueurs." alt="" coords="5,55,173,80"/>
+<area shape="rect" id="Node000002" href="$classJeu.html#a0d244da3e62f0b0f53e9e7c843afab43" title="Ajoute un joueur humain au jeu." alt="" coords="223,5,411,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,52,244,31,245,36,149,57"/>
+<area shape="rect" id="Node000003" href="$classJeu.html#a1ef8244e16131d2d90cb3e87382eebfb" title="Ajoute un joueur machine au jeu." alt="" coords="221,55,413,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,65,208,65,208,70,174,70"/>
+<area shape="rect" id="Node000004" href="$classJeu.html#ae8aa22d5c64d2865f363da67882a4399" title=" " alt="" coords="258,104,377,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="149,77,245,98,244,104,148,83"/>
+</map>

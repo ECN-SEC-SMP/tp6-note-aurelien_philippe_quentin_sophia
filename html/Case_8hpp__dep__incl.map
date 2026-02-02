@@ -1,0 +1,35 @@
+<map id="lib/Case.hpp" name="lib/Case.hpp">
+<area shape="rect" id="Node000001" title="Déclaration de la classe Case qui contient des cercles." alt="" coords="576,5,679,31"/>
+<area shape="rect" id="Node000002" href="$Machine_8hpp.html" title="Définition de la classe Machine." alt="" coords="439,225,565,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="616,44,511,226,506,224,611,42"/>
+<area shape="rect" id="Node000006" href="$Machine_8cpp.html" title=" " alt="" coords="539,299,665,324"/>
+<area shape="poly" id="edge20_Node000001_Node000006" title=" " alt="" coords="628,44,606,299,600,298,623,44"/>
+<area shape="rect" id="Node000007" href="$Plateau_8hpp.html" title="Définition de la classe Plateau." alt="" coords="275,79,393,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="568,36,382,81,381,76,567,31"/>
+<area shape="rect" id="Node000013" href="$Case_8cpp.html" title="Implantation des méthodes de Case." alt="" coords="690,79,794,104"/>
+<area shape="poly" id="edge19_Node000001_Node000013" title=" " alt="" coords="659,35,725,76,722,81,656,40"/>
+<area shape="rect" id="Node000003" href="$Jeu_8hpp.html" title="Définition de la classe Jeu." alt="" coords="211,299,302,324"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="450,257,297,301,296,296,449,252"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="531,256,587,296,584,301,528,261"/>
+<area shape="rect" id="Node000004" href="$Jeu_8cpp.html" title=" " alt="" coords="149,372,241,397"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="240,336,207,374,203,370,236,333"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html" title=" " alt="" coords="265,372,371,397"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="278,333,310,370,306,374,274,336"/>
+<area shape="poly" id="edge16_Node000007_Node000002" title=" " alt="" coords="360,111,490,223,487,227,357,115"/>
+<area shape="poly" id="edge10_Node000007_Node000003" title=" " alt="" coords="304,114,284,131,268,153,256,193,252,234,257,298,252,299,247,234,251,192,264,151,280,128,301,110"/>
+<area shape="poly" id="edge17_Node000007_Node000006" title=" " alt="" coords="388,106,434,124,485,149,536,182,579,224,590,242,598,263,604,298,599,299,592,264,585,245,575,227,532,186,483,153,432,128,386,111"/>
+<area shape="rect" id="Node000008" href="$Humain_8hpp.html" title="Définition de la classe Humain." alt="" coords="56,225,177,251"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="285,111,241,129,198,154,157,191,127,227,123,223,153,188,195,150,239,125,283,106"/>
+<area shape="rect" id="Node000010" href="$Joueur_8hpp.html" title="Définition de la classe Joueur." alt="" coords="279,152,389,177"/>
+<area shape="poly" id="edge11_Node000007_Node000010" title=" " alt="" coords="337,118,337,152,331,152,331,118"/>
+<area shape="rect" id="Node000012" href="$Plateau_8cpp.html" title=" " alt="" coords="5,152,127,177"/>
+<area shape="poly" id="edge18_Node000007_Node000012" title=" " alt="" coords="278,110,110,154,109,149,277,105"/>
+<area shape="poly" id="edge8_Node000008_Node000003" title=" " alt="" coords="153,254,235,296,233,301,150,259"/>
+<area shape="rect" id="Node000009" href="$Humain_8cpp.html" title=" " alt="" coords="55,299,178,324"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="119,264,119,299,114,299,114,264"/>
+<area shape="poly" id="edge14_Node000010_Node000002" title=" " alt="" coords="375,180,476,223,473,228,372,185"/>
+<area shape="poly" id="edge13_Node000010_Node000003" title=" " alt="" coords="318,190,294,227,275,266,263,300,258,298,270,264,289,224,314,187"/>
+<area shape="poly" id="edge12_Node000010_Node000008" title=" " alt="" coords="287,184,153,228,151,223,285,179"/>
+<area shape="rect" id="Node000011" href="$Joueur_8cpp.html" title=" " alt="" coords="303,225,415,251"/>
+<area shape="poly" id="edge15_Node000010_Node000011" title=" " alt="" coords="345,189,358,224,353,226,340,191"/>
+</map>

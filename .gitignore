@@ -2,8 +2,6 @@
 build/
 
 # Doxygen
-html/
-latex/
 Doxyfile.bak
 
 # IDE (VS code)

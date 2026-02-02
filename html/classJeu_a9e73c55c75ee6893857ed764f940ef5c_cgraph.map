@@ -1,0 +1,26 @@
+<map id="Jeu::lancerTourSuivant" name="Jeu::lancerTourSuivant">
+<area shape="rect" id="Node000001" title="Lance le tour du joueur courant." alt="" coords="5,132,172,157"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="53,134,46,124,50,114,64,108,89,105,119,109,131,118,127,122,117,114,89,111,66,113,53,118,51,123,57,130"/>
+<area shape="rect" id="Node000002" href="$classPlateau.html#a122c12319a8843a493fa06fe4f6e55d4" title="Affiche le plateau de jeu dans la console." alt="" coords="646,5,774,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,129,164,110,219,91,330,66,443,46,632,22,632,27,443,51,331,71,221,97,166,115,119,134"/>
+<area shape="rect" id="Node000004" href="$classPlateau.html#a607dac396bb07bae6e4ee5c1029b0522" title="Place un cercle sur le plateau aux coordonnées (x, y) si possible." alt="" coords="225,157,385,183"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="172,152,212,156,211,162,172,157"/>
+<area shape="rect" id="Node000008" href="$classJeu.html#aa568fd2a442686e58f07d2924195c5d9" title="Teste si le joueur de la couleur donnée a gagné après la dernière action." alt="" coords="236,107,375,132"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="172,132,222,126,223,132,172,138"/>
+<area shape="rect" id="Node000010" href="$classJeu.html#a4b67d7b840f7ec5b8b2de1006fdb188d" title="Vérifie si la partie est terminée." alt="" coords="220,207,391,232"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="121,155,221,193,244,200,243,205,219,198,119,160"/>
+<area shape="rect" id="Node000003" href="$classCase.html#ac4bf5393b135092b8c9ccd2bcc48b4b4" title=" " alt="" coords="832,107,963,132"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="744,28,785,48,867,97,864,101,783,52,742,33"/>
+<area shape="poly" id="edge9_Node000004_Node000003" title=" " alt="" coords="385,161,818,123,818,129,386,166"/>
+<area shape="rect" id="Node000005" href="$classCase.html#a704d738f8a333cd394a11e6dbf91078b" title="Ajoute un Cercle à la case si possible." alt="" coords="439,208,588,233"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="359,180,448,202,447,207,358,185"/>
+<area shape="rect" id="Node000007" href="$classCercle.html#ab93c81ea58f5bb9e10c48a4e7244b546" title="Obtient la taille du cercle." alt="" coords="834,233,961,259"/>
+<area shape="poly" id="edge10_Node000004_Node000007" title=" " alt="" coords="365,180,392,193,407,207,416,221,425,233,440,244,490,261,542,272,596,278,649,279,749,272,830,259,831,264,749,277,649,284,595,283,541,277,488,266,437,248,421,237,412,224,403,210,389,198,362,185"/>
+<area shape="rect" id="Node000006" href="$classCase.html#ae6fd5301dc7616d5b66dd6ed97aa9784" title="Teste si un Cercle est déjà présent dans la case." alt="" coords="636,208,784,233"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="588,218,622,218,622,223,588,223"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="742,205,783,186,864,137,867,142,785,191,744,210"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="785,228,821,233,820,238,784,233"/>
+<area shape="poly" id="edge13_Node000008_Node000003" title=" " alt="" coords="360,104,438,91,541,87,644,89,819,105,818,111,644,94,541,92,439,97,361,109"/>
+<area shape="rect" id="Node000009" href="$classPlateau.html#a2ae8c8780c3c3895ba9c2baa75190eab" title="Retourne une référence constante sur la case aux coordonnées (x, y)" alt="" coords="447,107,579,132"/>
+<area shape="poly" id="edge12_Node000008_Node000009" title=" " alt="" coords="375,117,433,117,433,122,375,122"/>
+</map>

@@ -31,4 +31,6 @@ public:
     std::pair<std::pair<int, int>, Cercle> deciderAction(Plateau& p) override;
 };
 
+std::ostream& operator<<(std::ostream& os, Couleur c);
+
 #endif // HUMAIN_HPP

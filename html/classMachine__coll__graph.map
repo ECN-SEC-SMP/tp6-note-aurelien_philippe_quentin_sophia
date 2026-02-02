@@ -1,5 +1,5 @@
 <map id="Machine" name="Machine">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,479,260,664"/>
+<area shape="rect" id="Node000001" title="Classe représentant un joueur machine." alt="" coords="5,479,260,664"/>
 <area shape="rect" id="Node000002" href="$classJoueur.html" title="Classe représentant un joueur dans le jeu." alt="" coords="60,5,205,431"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,444,135,478,130,478,130,444"/>
 </map>

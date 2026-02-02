@@ -14,6 +14,8 @@
 #include "Joueur.hpp"
 #include "Plateau.hpp"
 
+/** *@brief Classe représentant un joueur machine 
+  */
 class Machine : public Joueur {
 public:
 /** *@brief Constructeur de la classe Machine 

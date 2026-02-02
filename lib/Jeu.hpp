@@ -14,6 +14,8 @@
 #include "Humain.hpp"
 #include "Machine.hpp" 
 
+/** *@brief Classe représentant le jeu 
+  */
 class Jeu {
     private :
         /** *

@@ -10,6 +10,8 @@
 #include "Case.hpp"
 #include <iostream>
 
+/** *@brief Classe représentant le plateau de jeu 
+  */
 class Plateau {
 private:
     //tableau  3x3 statique

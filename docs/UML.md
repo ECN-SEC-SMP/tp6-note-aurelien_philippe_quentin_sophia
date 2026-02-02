@@ -10,6 +10,13 @@ classDiagram
     Joueur <|-- Machine
     Joueur <|-- Humain
 
+    class Machine {
+
+        +testerMenaceImminente()
+        +testerAlignementMemeTaille()
+        +testerAlignementTailleCroissante()
+
+    }
     %% Classes
     class Jeu {
       -int version
@@ -80,5 +87,5 @@ classDiagram
       MOYEN
       GRAND
     }
-    
+
 ```

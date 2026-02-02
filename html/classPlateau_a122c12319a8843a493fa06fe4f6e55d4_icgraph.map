@@ -1,0 +1,11 @@
+<map id="Plateau::afficher" name="Plateau::afficher">
+<area shape="rect" id="Node000001" title="Affiche le plateau de jeu dans la console." alt="" coords="497,8,625,33"/>
+<area shape="rect" id="Node000002" href="$classJeu.html#a98de76a91961f5c12bb1df678484dafa" title="Lance la partie." alt="" coords="108,8,235,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="483,14,449,11,366,8,283,11,235,15,235,10,283,6,366,3,449,6,484,8"/>
+<area shape="rect" id="Node000004" href="$classJeu.html#a9e73c55c75ee6893857ed764f940ef5c" title="Lance le tour du joueur courant." alt="" coords="283,45,449,70"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="484,38,434,48,433,42,483,33"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,8,60,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,23,60,23,60,18,95,18"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="285,45,234,35,235,30,286,40"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="401,35,391,27,366,24,345,26,334,30,332,36,338,43,334,46,327,37,331,27,344,21,366,18,393,22,404,31"/>
+</map>

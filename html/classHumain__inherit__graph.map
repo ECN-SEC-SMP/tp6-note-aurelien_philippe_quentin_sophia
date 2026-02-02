@@ -1,0 +1,5 @@
+<map id="Humain" name="Humain">
+<area shape="rect" id="Node000001" title="Classe représentant un joueur humain." alt="" coords="14,479,142,564"/>
+<area shape="rect" id="Node000002" href="$classJoueur.html" title="Classe représentant un joueur dans le jeu." alt="" coords="5,5,151,431"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,445,81,478,75,478,75,445"/>
+</map>

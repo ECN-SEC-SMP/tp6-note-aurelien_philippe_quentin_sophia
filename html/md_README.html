@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Otrio - Projet CPP - Groupe Aurelien, Philippe, Quentin, Sophia: TP noté 2 - Otrio</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Otrio - Projet CPP - Groupe Aurelien, Philippe, Quentin, Sophia<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Jeu de stratégie Otrio avec IA</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">TP noté 2 - Otrio</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> </p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Résumé du Projet</h1>
+<p>Implémentation du jeu Otrio avec 3 versions pour des joueurs humains et une intelligence artificielle basique. Le jeu se joue sur un plateau 3x3 avec des cercles de différentes tailles.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Procédure de compilation et lancement</h1>
+<p>1) mkdir build 2) cd build 3) cmake .. 4) cmake &ndash;build . 5) ./unittests 6) ./tp6</p>
+<hr  />
+<h1><a class="anchor" id="autotoc_md4"></a>
+Parties du Rendu</h1>
+<h2><a class="anchor" id="autotoc_md5"></a>
+1. Spécifications du Modèle de Données</h2>
+<ul>
+<li><b><a class="el" href="classCase.html" title="Représente une case pouvant contenir plusieurs objets Cercle.">Case</a></b> : Représente une cellule du plateau (contient des cercles)</li>
+<li><b><a class="el" href="classCercle.html" title="Caractérisé par une couleur et une taille.">Cercle</a></b> : Élément de jeu avec taille et couleur</li>
+<li><b>Enums</b> : Énumérations pour les états et paramètres du jeu</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6"></a>
+2. Système de Jeu</h2>
+<ul>
+<li><b><a class="el" href="classPlateau.html" title="Classe représentant le plateau de jeu.">Plateau</a></b> : Gestion de la grille 3x3, vérification des victoires</li>
+<li><b><a class="el" href="classJoueur.html" title="Classe représentant un joueur dans le jeu.">Joueur</a></b> : Classe parent pour humain et machine<ul>
+<li><b><a class="el" href="classHumain.html" title="Classe représentant un joueur humain.">Humain</a></b> : <a class="el" href="classJoueur.html" title="Classe représentant un joueur dans le jeu.">Joueur</a> contrôlé par l'utilisateur</li>
+<li><b><a class="el" href="classMachine.html" title="Classe représentant un joueur machine.">Machine</a></b> : <a class="el" href="classJoueur.html" title="Classe représentant un joueur dans le jeu.">Joueur</a> contrôlé par IA</li>
+</ul>
+</li>
+<li><b><a class="el" href="classJeu.html" title="Classe représentant le jeu.">Jeu</a></b> : Orchestration globale du jeu, gestion des tours</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md7"></a>
+3. Interface &amp; Interactivité</h2>
+<ul>
+<li><b><a class="el" href="main_8cpp.html">main.cpp</a></b> : Point d'entrée du programme</li>
+<li>Gestion des entrées utilisateur et affichage du plateau</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md8"></a>
+4. Documentation Technique</h2>
+<ul>
+<li><b>CMakeLists.txt</b> : Configuration de compilation</li>
+<li><b>UML.md</b> : Diagramme des classes</li>
+<li><b><a class="el" href="README_8md.html">README.md</a></b> : Rapport de TP</li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="autotoc_md10"></a>
+Architecture</h1>
+<h2><a class="anchor" id="autotoc_md11"></a>
+Diagramme de Classes</h2>
+<p>Voir UML.md pour le diagramme complet des classes et leurs relations</p>
+<h2><a class="anchor" id="autotoc_md12"></a>
+Collaborations</h2>
+<ul>
+<li>Lien Mermaid (diagramme de classes) : <a href="https://mermaid.ai/app/projects/84b852e5-5100-4d66-8dab-02dbfe78b077/diagrams/d162bb1f-1ef2-4b2b-a193-4e41ef5dca2f/share/invite/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudElEIjoiZDE2MmJiMWYtMWVmMi00YjJiLWExOTMtNGU0MWVmNWRjYTJmIiwiYWNjZXNzIjoiVmlldyIsImlhdCI6MTc2ODkyMDU5NH0.GMzww-fmbTNQI7TzBGFAdZksDuhMCwJ5AlaOUCv2m84">https://mermaid.ai/app/projects/84b852e5-5100-4d66-8dab-02dbfe78b077/diagrams/d162bb1f-1ef2-4b2b-a193-4e41ef5dca2f/share/invite/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudElEIjoiZDE2MmJiMWYtMWVmMi00YjJiLWExOTMtNGU0MWVmNWRjYTJmIiwiYWNjZXNzIjoiVmlldyIsImlhdCI6MTc2ODkyMDU5NH0.GMzww-fmbTNQI7TzBGFAdZksDuhMCwJ5AlaOUCv2m84</a></li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="autotoc_md14"></a>
+Organisation de l'Équipe</h1>
+<ul>
+<li>L'organisation initiale est décrite ci-dessous. Toutefois, un retard global dans l'avancement du projet a modifié ces plans, les membres réalisant des fonctions de supports divers.</li>
+</ul>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Membre   </th><th class="markdownTableHeadNone">Responsabilités    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Aurélien</b>   </td><td class="markdownTableBodyNone">Classe <a class="el" href="classJeu.html" title="Classe représentant le jeu.">Jeu</a>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>Philippe</b>   </td><td class="markdownTableBodyNone">Joueurs : Classe joueur, classe humain, GTests , Doxygen    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Quentin</b>   </td><td class="markdownTableBodyNone">Enums, classe <a class="el" href="classCase.html" title="Représente une case pouvant contenir plusieurs objets Cercle.">Case</a>, classe <a class="el" href="classCercle.html" title="Caractérisé par une couleur et une taille.">Cercle</a>, <a class="el" href="classMachine.html" title="Classe représentant un joueur machine.">Machine</a> "testerMenaceImminente"    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>Sophia</b>   </td><td class="markdownTableBodyNone">classe <a class="el" href="classPlateau.html" title="Classe représentant le plateau de jeu.">Plateau</a>, <a class="el" href="classMachine.html" title="Classe représentant un joueur machine.">Machine</a> "deciderAction", tests unitaires   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md15"></a>
+Répartition des Fichiers</h2>
+<ul>
+<li><code><a class="el" href="Plateau_8cpp.html">Plateau.cpp</a>/.hpp</code>, <code><a class="el" href="Machine_8cpp.html">Machine.cpp</a></code>, <code><a class="el" href="main_8cpp.html">main.cpp</a></code> → Sophia</li>
+<li><code><a class="el" href="Jeu_8cpp.html">Jeu.cpp</a></code> → Aurélien</li>
+<li><code><a class="el" href="Joueur_8cpp.html">Joueur.cpp</a></code>, <code><a class="el" href="Humain_8cpp.html">Humain.cpp</a></code>,<code>/tests</code> → Philippe</li>
+<li><code><a class="el" href="Machine_8cpp.html">Machine.cpp</a></code>, <code><a class="el" href="Case_8cpp.html" title="Implantation des méthodes de Case.">Case.cpp</a>/.hpp</code>, <code><a class="el" href="Cercle_8cpp.html" title="Implémentation de la classe Cercle.">Cercle.cpp</a>/.hpp</code>, <code><a class="el" href="Enums_8h.html">Enums.h</a></code> → Quentin </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

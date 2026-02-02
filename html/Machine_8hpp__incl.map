@@ -1,0 +1,28 @@
+<map id="lib/Machine.hpp" name="lib/Machine.hpp">
+<area shape="rect" id="Node000001" title="Définition de la classe Machine." alt="" coords="126,5,251,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,65,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,33,74,75,72,70,163,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="109,299,172,324"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,32,161,112,146,168,135,226,135,256,138,285,133,286,129,257,130,225,141,167,156,110,182,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="466,152,525,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="252,26,329,44,369,58,407,76,448,107,480,139,476,143,445,111,405,81,367,63,327,49,251,31"/>
+<area shape="rect" id="Node000005" href="$Case_8hpp.html" title="Déclaration de la classe Case qui contient des cercles." alt="" coords="145,225,227,251"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="190,31,183,93,182,177,185,212,180,212,177,177,178,93,184,31"/>
+<area shape="rect" id="Node000008" href="$Joueur_8hpp.html" title="Définition de la classe Joueur." alt="" coords="303,79,394,104"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="215,28,311,71,309,75,213,33"/>
+<area shape="rect" id="Node000010" href="$Plateau_8hpp.html" title="Définition de la classe Plateau." alt="" coords="191,152,290,177"/>
+<area shape="poly" id="edge16_Node000001_Node000010" title=" " alt="" coords="195,30,234,138,229,140,190,32"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="181,252,158,289,153,286,176,250"/>
+<area shape="rect" id="Node000006" href="$Cercle_8hpp.html" title="Définition de la classe Cercle utilisée dans le projet." alt="" coords="301,299,391,324"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="213,248,308,291,306,295,211,253"/>
+<area shape="rect" id="Node000007" href="$Enums_8h.html" title=" " alt="" coords="348,372,427,397"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="355,323,376,359,371,361,351,326"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="373,102,460,144,458,148,371,106"/>
+<area shape="poly" id="edge11_Node000008_Node000006" title=" " alt="" coords="352,104,353,251,351,285,345,285,347,251,346,104"/>
+<area shape="poly" id="edge12_Node000008_Node000007" title=" " alt="" coords="355,103,382,184,396,240,406,298,406,324,398,359,393,358,401,324,401,299,391,241,376,185,350,105"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="258,225,338,251"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="347,105,309,213,304,212,342,104"/>
+<area shape="poly" id="edge13_Node000008_Node000010" title=" " alt="" coords="333,106,271,147,268,142,330,102"/>
+<area shape="poly" id="edge14_Node000010_Node000005" title=" " alt="" coords="234,179,205,216,201,213,230,176"/>
+<area shape="poly" id="edge15_Node000010_Node000009" title=" " alt="" coords="252,176,282,213,278,216,248,179"/>
+</map>

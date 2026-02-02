@@ -1,0 +1,10 @@
+# Compilation (CMake)
+build/
+
+# Doxygen
+Doxyfile.bak
+
+# IDE (VS code)
+.vscode/
+
+

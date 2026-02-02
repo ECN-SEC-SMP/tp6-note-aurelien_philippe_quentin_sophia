@@ -1,0 +1,13 @@
+<map id="Plateau::placerCercle" name="Plateau::placerCercle">
+<area shape="rect" id="Node000001" title="Place un cercle sur le plateau aux coordonnées (x, y) si possible." alt="" coords="5,29,165,55"/>
+<area shape="rect" id="Node000002" href="$classCase.html#a704d738f8a333cd394a11e6dbf91078b" title="Ajoute un Cercle à la case si possible." alt="" coords="213,29,363,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,39,199,39,199,45,166,45"/>
+<area shape="rect" id="Node000004" href="$classCase.html#ac4bf5393b135092b8c9ccd2bcc48b4b4" title=" " alt="" coords="607,5,737,31"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="141,27,213,15,316,9,419,7,593,11,593,16,419,12,316,14,214,21,142,32"/>
+<area shape="rect" id="Node000005" href="$classCercle.html#ab93c81ea58f5bb9e10c48a4e7244b546" title="Obtient la taille du cercle." alt="" coords="609,55,735,80"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="139,52,214,65,317,72,420,74,595,69,595,75,420,79,316,77,213,70,138,57"/>
+<area shape="rect" id="Node000003" href="$classCase.html#ae6fd5301dc7616d5b66dd6ed97aa9784" title="Teste si un Cercle est déjà présent dans la case." alt="" coords="411,29,559,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="363,39,397,39,397,45,363,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="559,30,593,25,593,31,559,35"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="559,49,595,54,595,60,559,55"/>
+</map>

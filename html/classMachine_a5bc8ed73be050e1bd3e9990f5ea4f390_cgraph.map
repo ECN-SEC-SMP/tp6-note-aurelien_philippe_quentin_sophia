@@ -1,0 +1,40 @@
+<map id="Machine::deciderAction" name="Machine::deciderAction">
+<area shape="rect" id="Node000001" title="Décide de l&#39;action de la machine." alt="" coords="5,198,180,224"/>
+<area shape="rect" id="Node000002" href="$classPlateau.html#a2ae8c8780c3c3895ba9c2baa75190eab" title="Retourne une référence constante sur la case aux coordonnées (x, y)" alt="" coords="763,72,895,97"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,196,170,176,227,158,370,128,514,107,644,93,749,86,749,91,645,99,514,112,371,133,229,163,172,181,123,200"/>
+<area shape="rect" id="Node000003" href="$classJoueur.html#a5912789a36779072d93bc01825d8d968" title=" " alt="" coords="976,500,1119,525"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="111,222,198,289,343,389,432,441,527,490,628,532,730,563,785,574,828,578,872,574,927,563,972,548,1012,529,1015,534,974,553,929,568,873,579,829,583,784,579,729,568,626,537,525,495,429,446,340,393,194,294,108,226"/>
+<area shape="rect" id="Node000004" href="$Machine_8cpp.html#a8707253860b45bc808be3851776cd440" title=" " alt="" coords="478,21,639,46"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="99,196,118,168,146,130,183,93,227,63,286,41,348,28,409,23,464,23,464,28,409,28,348,34,287,46,229,68,186,97,150,134,122,171,104,199"/>
+<area shape="rect" id="Node000006" href="$classPlateau.html#a607dac396bb07bae6e4ee5c1029b0522" title="Place un cercle sur le plateau aux coordonnées (x, y) si possible." alt="" coords="228,173,388,198"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="180,198,214,194,215,199,181,203"/>
+<area shape="rect" id="Node000008" href="$classCase.html#ae6fd5301dc7616d5b66dd6ed97aa9784" title="Teste si un Cercle est déjà présent dans la case." alt="" coords="755,173,903,198"/>
+<area shape="poly" id="edge13_Node000001_Node000008" title=" " alt="" coords="180,213,407,218,544,216,681,208,754,198,755,203,682,214,544,221,407,223,180,218"/>
+<area shape="rect" id="Node000010" href="$classMachine.html#a00f783a09e98f24e32fcd608cda2ee64" title="Teste si un adversaire est sur le point de gagner." alt="" coords="436,353,681,378"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="133,221,507,346,505,351,131,226"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="628,44,750,67,749,72,627,49"/>
+<area shape="rect" id="Node000005" href="$classCase.html#ac4bf5393b135092b8c9ccd2bcc48b4b4" title=" " alt="" coords="982,300,1113,325"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="610,18,679,7,764,4,808,8,851,17,892,33,930,57,947,74,957,91,964,127,966,166,970,187,978,210,1003,251,1029,287,1024,290,998,254,974,212,965,189,961,167,959,128,952,93,943,77,926,61,890,38,850,23,807,13,763,9,680,12,611,23"/>
+<area shape="poly" id="edge11_Node000006_Node000005" title=" " alt="" coords="372,196,436,208,731,259,969,298,968,303,730,264,436,213,371,201"/>
+<area shape="rect" id="Node000007" href="$classCase.html#a704d738f8a333cd394a11e6dbf91078b" title="Ajoute un Cercle à la case si possible." alt="" coords="484,173,633,198"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="388,183,470,183,470,188,388,188"/>
+<area shape="rect" id="Node000009" href="$classCercle.html#ab93c81ea58f5bb9e10c48a4e7244b546" title="Obtient la taille du cercle." alt="" coords="984,173,1111,198"/>
+<area shape="poly" id="edge12_Node000006_Node000009" title=" " alt="" coords="360,170,436,158,574,145,682,141,790,145,928,158,985,167,984,172,928,163,790,150,682,146,574,151,436,163,361,175"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="633,183,741,183,741,188,633,188"/>
+<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="853,196,1014,290,1011,295,851,201"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="903,183,970,183,970,188,903,188"/>
+<area shape="poly" id="edge15_Node000010_Node000002" title=" " alt="" coords="568,351,646,253,727,158,796,103,799,107,731,162,650,256,572,354"/>
+<area shape="poly" id="edge18_Node000010_Node000003" title=" " alt="" coords="570,377,592,412,628,458,675,504,701,524,730,539,765,550,801,556,875,555,944,543,1001,527,1002,532,945,548,876,561,801,562,764,556,728,544,699,528,671,508,624,462,588,415,565,380"/>
+<area shape="poly" id="edge16_Node000010_Node000005" title=" " alt="" coords="676,350,968,318,968,323,676,355"/>
+<area shape="poly" id="edge19_Node000010_Node000009" title=" " alt="" coords="594,350,997,201,999,206,595,355"/>
+<area shape="rect" id="Node000011" href="$classCercle.html#aea35ac3f40c495279bf3dc8f51b1e93c" title="Obtient la couleur du cercle." alt="" coords="757,504,900,529"/>
+<area shape="poly" id="edge17_Node000010_Node000011" title=" " alt="" coords="575,376,639,430,683,462,730,488,751,497,749,502,728,493,680,466,636,435,572,380"/>
+<area shape="rect" id="Node000012" href="$classMachine.html#a1c14f27f557a9c0dc687b6f5e673be64" title="Teste un alignement de cercles de même taille." alt="" coords="729,375,928,415"/>
+<area shape="poly" id="edge20_Node000010_Node000012" title=" " alt="" coords="676,376,716,380,715,385,675,381"/>
+<area shape="rect" id="Node000013" href="$classMachine.html#ae796c557e9ff522965b78b7c98e6a327" title="Teste un alignement de cercles de tailles croissantes." alt="" coords="729,439,928,479"/>
+<area shape="poly" id="edge23_Node000010_Node000013" title=" " alt="" coords="595,376,730,424,753,432,751,437,728,429,593,381"/>
+<area shape="poly" id="edge22_Node000012_Node000003" title=" " alt="" coords="902,413,929,424,980,456,1022,488,1019,492,977,460,927,429,900,417"/>
+<area shape="poly" id="edge21_Node000012_Node000005" title=" " alt="" coords="881,372,999,327,1001,332,883,377"/>
+<area shape="poly" id="edge25_Node000013_Node000003" title=" " alt="" coords="912,476,982,494,981,499,910,481"/>
+<area shape="poly" id="edge24_Node000013_Node000005" title=" " alt="" coords="903,436,927,425,956,404,983,380,1025,334,1029,338,987,384,959,408,929,429,905,441"/>
+</map>

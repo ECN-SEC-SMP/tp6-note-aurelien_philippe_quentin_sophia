@@ -1,0 +1,7 @@
+<map id="Machine::testerAlignementTailleCroissante" name="Machine::testerAlignementTailleCroissante">
+<area shape="rect" id="Node000001" title="Teste un alignement de cercles de tailles croissantes." alt="" coords="521,5,720,45"/>
+<area shape="rect" id="Node000002" href="$classMachine.html#a00f783a09e98f24e32fcd608cda2ee64" title="Teste si un adversaire est sur le point de gagner." alt="" coords="228,13,473,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="508,28,474,28,474,23,508,23"/>
+<area shape="rect" id="Node000003" href="$classMachine.html#a5bc8ed73be050e1bd3e9990f5ea4f390" title="Décide de l&#39;action de la machine." alt="" coords="5,13,180,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="214,28,180,28,180,23,214,23"/>
+</map>

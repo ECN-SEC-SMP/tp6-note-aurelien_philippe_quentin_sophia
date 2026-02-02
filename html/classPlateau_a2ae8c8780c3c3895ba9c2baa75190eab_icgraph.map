@@ -1,0 +1,20 @@
+<map id="Plateau::getCase" name="Plateau::getCase">
+<area shape="rect" id="Node000001" title="Retourne une référence constante sur la case aux coordonnées (x, y)" alt="" coords="799,55,931,80"/>
+<area shape="rect" id="Node000002" href="$classMachine.html#a5bc8ed73be050e1bd3e9990f5ea4f390" title="Décide de l&#39;action de la machine." alt="" coords="283,30,457,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="829,51,792,33,750,20,707,13,662,9,573,11,491,20,425,32,424,27,490,15,572,6,662,4,707,7,751,14,794,28,832,46"/>
+<area shape="rect" id="Node000003" href="$Machine_8cpp.html#a8707253860b45bc808be3851776cd440" title=" " alt="" coords="547,30,709,55"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="785,62,708,54,709,48,785,57"/>
+<area shape="rect" id="Node000004" href="$classMachine.html#a00f783a09e98f24e32fcd608cda2ee64" title="Teste si un adversaire est sur le point de gagner." alt="" coords="505,79,751,104"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="785,78,751,82,751,77,784,73"/>
+<area shape="rect" id="Node000005" href="$classJeu.html#aa568fd2a442686e58f07d2924195c5d9" title="Teste si le joueur de la couleur donnée a gagné après la dernière action." alt="" coords="559,128,697,154"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="827,89,751,120,698,133,697,128,750,115,825,84"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="534,45,458,45,458,40,534,40"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="547,79,437,58,438,53,548,74"/>
+<area shape="rect" id="Node000006" href="$classJeu.html#a9e73c55c75ee6893857ed764f940ef5c" title="Lance le tour du joueur courant." alt="" coords="287,128,453,154"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="545,144,454,144,454,138,545,138"/>
+<area shape="poly" id="edge10_Node000006_Node000006" title=" " alt="" coords="405,118,395,110,370,107,349,109,338,114,336,119,342,127,337,130,331,120,334,110,348,104,370,102,397,105,408,114"/>
+<area shape="rect" id="Node000007" href="$classJeu.html#a98de76a91961f5c12bb1df678484dafa" title="Lance la partie." alt="" coords="108,128,235,154"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="273,144,235,144,235,138,273,138"/>
+<area shape="rect" id="Node000008" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,128,60,154"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="95,144,60,144,60,138,95,138"/>
+</map>

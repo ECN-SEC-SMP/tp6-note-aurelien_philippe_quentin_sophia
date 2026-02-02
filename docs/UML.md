@@ -61,7 +61,6 @@ classDiagram
     }
 
     class Humain {
-      +void testerMenance()
       +void deciderAction()
     }
 
@@ -81,5 +80,5 @@ classDiagram
       MOYEN
       GRAND
     }
-
+    
 ```
